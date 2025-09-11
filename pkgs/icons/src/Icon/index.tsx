@@ -6,11 +6,14 @@ import "./styles.css";
 
 export interface IconProps
   extends Omit<HTMLProps<HTMLDivElement>, "id" | "color" | "size">,
-    cn.Props<typeof iconCn> {
+    cn.Props<typeof iconBaseCn>,
+    cn.Props<typeof iconMaskCn> {
   id: IconProp;
 }
 
-export interface IconBaseProps extends cn.Props<typeof iconCn> {
+export interface IconBaseProps
+  extends cn.Props<typeof iconBaseCn>,
+    cn.Props<typeof iconMaskCn> {
   id: IconId;
   className?: string | undefined;
 }
@@ -30,7 +33,7 @@ export function Icon(props: IconProps) {
 
   return (
     <div
-      className={iconCn(iconProps)}
+      className={cn(iconBaseCn(iconProps), iconMaskCn(iconProps))}
       style={{
         mask: `url(https://assets.mindcontrol.studio/icons/${id}) no-repeat center / contain`,
       }}
@@ -48,12 +51,10 @@ export type IconColor =
   | "danger"
   | "success";
 
-export const iconCn = cn<{
-  size: IconSize;
+export const iconMaskCn = cn<{
   color: IconColor;
   inverse: boolean;
   trigger: boolean;
-  disabled: boolean;
 }>()
   .color("main", {
     main: [
@@ -73,16 +74,42 @@ export const iconCn = cn<{
     danger: ["bg-red-500" /* TODO: */],
     success: ["bg-green-500" /* TODO: */],
   })
-  .size("medium", {
-    xsmall: "size-3",
-    small: "size-4",
-    medium: "size-5",
-    large: "size-6",
-    xlarge: "size-9",
-    fill: "w-full aspect-square",
+  .trigger(false)
+  .inverse(false);
+
+export const iconInlineCn = cn<{
+  color: IconColor;
+  inverse: boolean;
+  trigger: boolean;
+}>()
+  .color("main", {
+    main: [
+      "text-[currentColor]",
+      [{ inverse: false, trigger: true }, "hover:text-gray-900"],
+      [{ inverse: true, trigger: false }, "text-white"],
+      [{ inverse: true, trigger: true }, "hover:text-gray-100"],
+    ],
+    support: [
+      [{ inverse: false }, "text-gray-500"],
+      [{ inverse: false, trigger: true }, "hover:text-gray-800"],
+      [{ inverse: true, trigger: false }, "text-gray-50"],
+      [{ inverse: true, trigger: true }, "hover:text-gray-100"],
+    ],
+    detail: ["text-gray-400", { trigger: { true: "hover:text-gray-600" } }],
+    brand: ["text-lime-500" /* TODO: */],
+    danger: ["text-red-500" /* TODO: */],
+    success: ["text-green-500" /* TODO: */],
   })
   .trigger(false)
-  .inverse(false)
-  .disabled(false, {
-    true: "opacity-50 cursor-not-allowed",
-  });
+  .inverse(false);
+
+export const iconBaseCn = cn<{
+  size: IconSize;
+}>().size("medium", {
+  xsmall: "size-3",
+  small: "size-4",
+  medium: "size-5",
+  large: "size-6",
+  xlarge: "size-9",
+  fill: "w-full aspect-square",
+});
