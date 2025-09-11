@@ -1,0 +1,15 @@
+{
+  "name": "@wrkspc/ds",
+  "version": "0.1.0",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@wrkspc/form": "workspace:*",
+    "@wrkspc/icons": "workspace:*",
+    "@wrkspc/props": "workspace:*",
+    "@wrkspc/theme": "workspace:*",
+    "@wrkspc/ui": "workspace:*"
+  }
+}
