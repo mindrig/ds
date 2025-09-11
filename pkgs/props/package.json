@@ -1,0 +1,14 @@
+{
+  "name": "@wrkspc/props",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {},
+  "devDependencies": {
+    "@types/react": "^19.1.12",
+    "@wrkspc/ts": "workspace:*"
+  }
+}
