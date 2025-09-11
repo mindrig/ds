@@ -1,0 +1,4 @@
+{
+  "extends": "@wrkspc/ts/base",
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
+}
