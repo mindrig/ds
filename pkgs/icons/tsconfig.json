@@ -1,0 +1,5 @@
+{
+  "extends": "@wrkspc/ts/base",
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./scripts/**/*.ts"],
+  "references": [{ "path": "../theme" }]
+}
