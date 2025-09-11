@@ -12,7 +12,7 @@
     "@wrkspc/props": "workspace:*",
     "@wrkspc/theme": "workspace:*",
     "crab": "^1.12.0",
-    "enso": "^2.0.3",
+    "enso": "^2.0.4",
     "react": "19.1.1",
     "react-aria-components": "^1.12.1"
   },
