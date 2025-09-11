@@ -1,0 +1,9 @@
+{
+  "extends": "@wrkspc/ts/base",
+  "include": ["./src/**/*.ts", "./**/*.tsx"],
+  "references": [
+    { "path": "../ui" },
+    { "path": "../props" },
+    { "path": "../theme" }
+  ]
+}
