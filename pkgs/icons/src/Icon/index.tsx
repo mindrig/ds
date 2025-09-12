@@ -44,7 +44,8 @@ export function Icon(props: IconProps) {
 export type IconSize = Size | "fill";
 
 export type IconColor =
-  | "main"
+  | "main" // TODO: Rename to adaptive, as it adapts via `currentColor`
+  | "primary"
   | "support"
   | "detail"
   | "brand"
@@ -59,17 +60,35 @@ export const iconMaskCn = cn<{
   .color("main", {
     main: [
       "bg-[currentColor]",
-      [{ inverse: false, trigger: true }, "hover:bg-gray-900"],
-      [{ inverse: true, trigger: false }, "bg-white"],
-      [{ inverse: true, trigger: true }, "hover:bg-gray-100"],
+      [{ inverse: false, trigger: true }, "hover:bg-icon-hover"],
+      // Inverse
+      [{ inverse: true, trigger: false }, "bg-icon-inverse"],
+      [
+        { inverse: true, trigger: true },
+        "bg-icon-inverse hover:bg-icon-inverse-hover",
+      ],
+    ],
+    primary: [
+      "bg-icon",
+      [{ inverse: false, trigger: true }, "hover:bg-icon-hover"],
+      // Inverse
+      [{ inverse: true }, "bg-icon-inverse"],
+      [{ inverse: true, trigger: true }, " hover:bg-icon-inverse-hover"],
     ],
     support: [
-      [{ inverse: false }, "bg-gray-500"],
-      [{ inverse: false, trigger: true }, "hover:bg-gray-800"],
-      [{ inverse: true, trigger: false }, "bg-gray-50"],
-      [{ inverse: true, trigger: true }, "hover:bg-gray-100"],
+      [{ inverse: false }, "bg-icon-support"],
+      [{ inverse: false, trigger: true }, "hover:bg-icon-support-hover"],
+      // Inverse
+      [{ inverse: true }, "bg-icon-support-inverse"],
+      [{ inverse: true, trigger: true }, "hover:bg-icon-support-inverse-hover"],
     ],
-    detail: ["bg-gray-400", { trigger: { true: "hover:bg-gray-600" } }],
+    detail: [
+      [{ inverse: false }, "bg-icon-support"],
+      [{ inverse: false, trigger: true }, "hover:bg-icon-support-hover"],
+      // Inverse
+      [{ inverse: true }, "bg-icon-support-inverse"],
+      [{ inverse: true, trigger: true }, "hover:bg-icon-support-inverse-hover"],
+    ],
     brand: ["bg-lime-500" /* TODO: */],
     danger: ["bg-red-500" /* TODO: */],
     success: ["bg-green-500" /* TODO: */],
@@ -85,17 +104,41 @@ export const iconInlineCn = cn<{
   .color("main", {
     main: [
       "text-[currentColor]",
-      [{ inverse: false, trigger: true }, "hover:text-gray-900"],
-      [{ inverse: true, trigger: false }, "text-white"],
-      [{ inverse: true, trigger: true }, "hover:text-gray-100"],
+      [{ inverse: false, trigger: true }, "hover:text-icon-hover"],
+      // Inverse
+      [{ inverse: true, trigger: false }, "text-icon-inverse"],
+      [
+        { inverse: true, trigger: true },
+        "text-icon-inverse hover:text-icon-inverse-hover",
+      ],
+    ],
+    primary: [
+      "text-icon",
+      [{ inverse: false, trigger: true }, "hover:text-icon-hover"],
+      // Inverse
+      [{ inverse: true }, "text-icon-inverse"],
+      [{ inverse: true, trigger: true }, " hover:text-icon-inverse-hover"],
     ],
     support: [
-      [{ inverse: false }, "text-gray-500"],
-      [{ inverse: false, trigger: true }, "hover:text-gray-800"],
-      [{ inverse: true, trigger: false }, "text-gray-50"],
-      [{ inverse: true, trigger: true }, "hover:text-gray-100"],
+      [{ inverse: false }, "text-icon-support"],
+      [{ inverse: false, trigger: true }, "hover:text-icon-support-hover"],
+      // Inverse
+      [{ inverse: true }, "text-icon-support-inverse"],
+      [
+        { inverse: true, trigger: true },
+        "hover:text-icon-support-inverse-hover",
+      ],
     ],
-    detail: ["text-gray-400", { trigger: { true: "hover:text-gray-600" } }],
+    detail: [
+      [{ inverse: false }, "text-icon-support"],
+      [{ inverse: false, trigger: true }, "hover:text-icon-support-hover"],
+      // Inverse
+      [{ inverse: true }, "text-icon-support-inverse"],
+      [
+        { inverse: true, trigger: true },
+        "hover:text-icon-support-inverse-hover",
+      ],
+    ],
     brand: ["text-lime-500" /* TODO: */],
     danger: ["text-red-500" /* TODO: */],
     success: ["text-green-500" /* TODO: */],

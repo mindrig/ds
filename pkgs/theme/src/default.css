@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  /* Canvas (background) */
+
+  --color-canvas: var(--color-gray-100);
+
+  /* Ink (text) */
+
+  /* Primary */
+  --color-ink: var(--color-gray-950);
+  --color-ink-inverse: var(--color-white);
+  /* Support */
+  --color-ink-support: var(--color-gray-600);
+  --color-ink-support-inverse: var(--color-gray-400);
+  /* Detail */
+  --color-ink-detail: var(--color-gray-500);
+  --color-ink-detail-inverse: var(--color-gray-500);
+
+  /* Icon */
+
+  /* Primary */
+  --color-icon: var(--color-gray-900);
+  --color-icon-hover: var(--color-gray-800);
+  --color-icon-inverse: var(--color-white);
+  --color-icon-inverse-hover: var(--color-gray-100);
+  /* Support */
+  --color-icon-support: var(--color-gray-500);
+  --color-icon-support-hover: var(--color-gray-400);
+  /* Detail */
+  --color-icon-detail: var(--color-gray-400);
+  --color-icon-detail-hover: var(--color-gray-300);
+
+  /*# Sizes */
+
+  /* Add your sizes here. */
+
+  /* Input */
+
+  /* Radius */
+  --radius-input: var(--radius-lg);
+  --radius-input-sm: var(--radius-md);
+  /* Shadow */
+  --shadow-input: var(--shadow-xs);
+  /* Colors */
+  --color-input-canvas: var(--color-white);
+  --color-input-ink: var(--color-gray-900);
+  --color-input-border: var(--color-gray-300);
+
+  /* Menu */
+
+  /* Radius */
+  --radius-menu: var(--radius-lg);
+  /* Shadow */
+  --shadow-menu: var(--shadow-md);
+  /* Border */
+  --color-menu-canvas: var(--color-white);
+  --color-menu-border: var(--color-gray-200);
+
+  /* Option */
+
+  /* Radius */
+  --radius-option: var(--radius-md);
+  /* Shadow */
+  --shadow-option: var(--shadow-md);
+  /* Colors */
+  --color-option-canvas: var(--color-white);
+  --color-option-canvas-hover: var(--color-gray-100);
+  --color-option-canvas-selected: var(--color-indigo-50);
+  --color-option-ink: var(--color-gray-900);
+  --color-option-ink-selected: var(--color-indigo-900);
+}

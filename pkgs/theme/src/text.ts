@@ -12,7 +12,7 @@ export type TextRole =
 export type TextFlow = "normal" | "textarea";
 
 export const bodyCn = (className?: string) =>
-  cn("text-gray-950 font-sans font-normal leading-normal", className);
+  cn("text-ink font-sans font-normal leading-normal", className);
 
 export const textCn = cn<{
   color: Color;
@@ -29,10 +29,13 @@ export const textCn = cn<{
 }>()
   .capsize(false, { true: "capsize" })
   .color("main", {
-    // It's text-gray-950, but we set it on body, so we can override
-    main: ["", [{ inverse: true }, "text-white"]],
-    support: ["text-gray-600", [{ inverse: true }, "text-slate-400"]],
-    detail: "text-gray-500",
+    // It's text-ink, but we set it on body, so we can override
+    main: ["", [{ inverse: true }, "text-ink-inverse"]],
+    support: [
+      "text-ink-support",
+      [{ inverse: true }, "text-ink-support-inverse"],
+    ],
+    detail: ["text-ink-detail", [{ inverse: true }, "text-ink-detail-inverse"]],
   })
   .size("medium")
   .role("body", {

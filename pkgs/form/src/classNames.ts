@@ -43,13 +43,13 @@ export const inputCn = cn<{
   content: InputContent;
 }>()
   .base(
-    "flex justify-between items-center w-full placeholder:text-muted-foreground border border-gray-300 bg-white ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 shadow-xs",
+    "flex justify-between items-center w-full placeholder:text-muted-foreground border border-input-border bg-input-canvas ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 shadow-input",
   )
   .size("medium", {
-    xsmall: "h-6 rounded-md p-1 text-sm",
-    small: "h-7 rounded-md px-2 py-1 text-sm",
-    medium: "h-10 rounded-lg px-3 py-2 text-sm",
-    large: "h-11 rounded-lg px-8",
+    xsmall: "h-6 rounded-input-sm p-1 text-sm",
+    small: "h-7 rounded-input-sm px-2 py-1 text-sm",
+    medium: "h-10 rounded-input px-3 py-2 text-sm",
+    large: "h-11 rounded-input px-8",
   })
   .prefix(false, {
     true: "rounded-l-none",

@@ -75,7 +75,11 @@ export function labelProps(
 export function labelA11yProps(label: LabelValue) {
   return {
     "aria-label":
-      typeof label == "object" && "a11y" in label ? label.a11y : undefined,
+      typeof label == "object"
+        ? "a11y" in label
+          ? label.a11y
+          : label.label
+        : label,
   };
 }
 

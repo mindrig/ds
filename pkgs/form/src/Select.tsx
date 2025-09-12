@@ -82,7 +82,7 @@ export function Select<Payload extends string | number>(
         <Button
           {...props}
           className={inputCn({ size, italic, mono })}
-          isDisabled={isDisabled}
+          isDisabled={!!isDisabled}
         >
           <SelectValue>
             {({ selectedText }) => (
@@ -97,7 +97,7 @@ export function Select<Payload extends string | number>(
         </Button>
       ))}
 
-      <Popover className="shadow-md bg-white border rounded-lg overflow-y-auto">
+      <Popover className="shadow-menu bg-menu-canvas border border-menu-border rounded-menu overflow-y-auto">
         <ListBox className={selectListCn({ size })}>
           {props.options.map(
             (option) =>
@@ -159,7 +159,9 @@ export const selectItemCn = cn<{
   isSelected: boolean;
   mono: boolean;
 }>()
-  .base("rounded-md hover:bg-gray-100")
+  .base(
+    "rounded-option hover:bg-option-canvas-hover hover:text-option-ink-hover cursor-pointer select-none",
+  )
   .size("medium", {
     xsmall: "py-1 px-1 text-sm",
     small: "py-1 px-2 text-sm",
@@ -167,7 +169,7 @@ export const selectItemCn = cn<{
     large: "py-1 px-3",
   })
   .isSelected(false, {
-    true: "bg-indigo-50",
+    true: "text-option-ink-selected bg-option-canvas-selected",
   })
   .mono(false, {
     true: "font-mono",
