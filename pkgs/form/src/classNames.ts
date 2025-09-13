@@ -43,7 +43,7 @@ export const inputCn = cn<{
   content: InputContent;
 }>()
   .base(
-    "flex justify-between items-center w-full placeholder:text-muted-foreground border border-input-border bg-input-canvas ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 shadow-input",
+    "flex justify-between items-center w-full placeholder:text-input-placeholder border border-input-border bg-input-canvas ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 shadow-input",
   )
   .size("medium", {
     xsmall: "h-6 rounded-input-sm p-1 text-sm",

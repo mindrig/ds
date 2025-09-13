@@ -1,6 +1,9 @@
 {
   "extends": "@wrkspc/ts/base",
   "include": ["./src/**/*.ts", "./**/*.tsx"],
+  "compilerOptions": {
+    "lib": ["DOM", "ESNext"]
+  },
   "references": [
     { "path": "../ui" },
     { "path": "../props" },

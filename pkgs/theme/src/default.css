@@ -45,6 +45,7 @@
   /* Colors */
   --color-input-canvas: var(--color-white);
   --color-input-ink: var(--color-gray-900);
+  --color-input-placeholder: var(--color-gray-400);
   --color-input-border: var(--color-gray-300);
 
   /* Menu */
