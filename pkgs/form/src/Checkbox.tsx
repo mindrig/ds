@@ -1,6 +1,8 @@
 "use client";
 
-import { Icon, iconLightSquare, iconLightSquareCheck } from "@wrkspc/icons";
+import { Icon } from "@wrkspc/icons";
+import iconLightSquareCheck from "@wrkspc/icons/svg/light/square-check.js";
+import iconLightSquare from "@wrkspc/icons/svg/light/square.js";
 import { Color, Size, textCn } from "@wrkspc/theme";
 import { anyErrors, renderErrors, WithErrorsProps } from "@wrkspc/ui";
 import { cn } from "crab";
@@ -39,7 +41,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
       <RACheckbox
         {...restProps}
         isSelected={value}
-        isDisabled={disabled}
+        isDisabled={!!disabled}
         className={checkboxCn({ size, disabled })}
         ref={ref}
       >

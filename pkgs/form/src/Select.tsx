@@ -1,11 +1,8 @@
 "use client";
 
-import {
-  Icon,
-  iconLightCheck,
-  IconProp,
-  iconSolidCaretDown,
-} from "@wrkspc/icons";
+import { Icon, IconProp } from "@wrkspc/icons";
+import iconLightCheck from "@wrkspc/icons/svg/light/check.js";
+import iconSolidCaretDown from "@wrkspc/icons/svg/solid/caret-down.js";
 import { ComponentProp, componentPropResolve } from "@wrkspc/props";
 import { Size } from "@wrkspc/theme";
 import { renderErrors, WithErrorsProps } from "@wrkspc/ui";

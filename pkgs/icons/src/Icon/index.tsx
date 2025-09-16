@@ -2,7 +2,6 @@ import { type Size } from "@wrkspc/theme";
 import { cn } from "crab";
 import { type HTMLProps } from "react";
 import { type IconId } from "..";
-import "./styles.css";
 
 export interface IconProps
   extends Omit<HTMLProps<HTMLDivElement>, "id" | "color" | "size">,
@@ -21,8 +20,8 @@ export interface IconBaseProps
 export type IconProp = IconId | IconBaseProps;
 
 export function Icon(props: IconProps) {
-  // This allows passing either the icon id or an object with the id and props.
-  // It allows to wrap the component:
+  // This allows passing either the icon id or an object with the id and
+  // props. It allows to wrap the component:
   //   <Icon id={props.icon} size="xlarge" color="support" />
   // Where `props.icon` is `IconProp`. Whatever is defined will override
   // the explicitly size and color props.
@@ -35,7 +34,9 @@ export function Icon(props: IconProps) {
     <div
       className={cn(iconBaseCn(iconProps), iconMaskCn(iconProps))}
       style={{
-        mask: `url(https://assets.mindcontrol.studio/icons/${id}) no-repeat center / contain`,
+        // TODO: Migrate Mind Control to the new approach. Here's the previous URL:
+        // mask: `url(https://assets.mindcontrol.studio/icons/${id}) no-repeat center / contain`,
+        mask: `url(${id}) no-repeat center / contain`,
       }}
     />
   );

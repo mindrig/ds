@@ -1,6 +1,7 @@
 "use client";
 
-import { Icon, iconRegularXmark } from "@wrkspc/icons";
+import { Icon } from "@wrkspc/icons";
+import iconRegularXmark from "@wrkspc/icons/svg/regular/xmark.js";
 import { cn } from "crab";
 import { useContext } from "react";
 import { ModalContext } from "./ModalContext";

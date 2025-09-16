@@ -1,6 +1,6 @@
 {
   "extends": "@wrkspc/ts/base",
-  "include": ["./src/**/*.ts", "./**/*.tsx"],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
   "compilerOptions": {
     "lib": ["DOM", "ESNext"]
   },

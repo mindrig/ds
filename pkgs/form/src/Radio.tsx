@@ -1,6 +1,8 @@
 "use client";
 
-import { Icon, iconRegularCircle, iconRegularCircleDot } from "@wrkspc/icons";
+import { Icon } from "@wrkspc/icons";
+import iconRegularCircleDot from "@wrkspc/icons/svg/regular/circle-dot.js";
+import iconRegularCircle from "@wrkspc/icons/svg/regular/circle.js";
 import { Size, textCn } from "@wrkspc/theme";
 import { cn } from "crab";
 import React, { forwardRef } from "react";
@@ -23,7 +25,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
       <RARadio
         {...restProps}
         className={radioCn({ size })}
-        isDisabled={disabled}
+        isDisabled={!!disabled}
         ref={ref}
       >
         {({ isSelected }) => (

@@ -1,6 +1,8 @@
 "use client";
 
-import { Icon, iconLightCheck, iconLightCopy } from "@wrkspc/icons";
+import { Icon } from "@wrkspc/icons";
+import iconLightCheck from "@wrkspc/icons/svg/light/check.js";
+import iconLightCopy from "@wrkspc/icons/svg/light/copy.js";
 import { PropsWithChildren, useRef, useState } from "react";
 import { WithTooltip } from "./WithTooltip";
 
@@ -24,7 +26,7 @@ export function Copyable(props: PropsWithChildren<CopiableProps>) {
             intervalRef.current = null;
           }}
           tooltip={copied ? "Copied" : "Copy"}
-          isOpen={copied || undefined}
+          isOpen={!!copied}
           className="w-7 h-7 bg-white/80 shadow-xs rounded-md border border-gray-400 flex items-center justify-center"
           onPress={() => {
             navigator.clipboard.writeText(props.value);

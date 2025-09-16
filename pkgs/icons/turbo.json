@@ -1,0 +1,25 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "tasks": {
+    "setup": {
+      "dependsOn": ["build/generate"]
+    },
+
+    "build": {
+      "dependsOn": ["build/generate"]
+    },
+
+    "build/generate": {
+      "dependsOn": ["build/import"],
+      "inputs": ["$TURBO_DEFAULT$", "./scripts/generate.ts", "./dist/**/*.svg"],
+      "outputs": ["./dist/**/*.ts"]
+    },
+
+    "build/import": {
+      "inputs": ["$TURBO_DEFAULT$", "./.fontawesomerc", "./scripts/import.sh"],
+      "outputs": ["./dist/**/*.svg"],
+      "env": ["FONTAWESOME_PACKAGE_TOKEN"]
+    }
+  },
+  "extends": ["//"]
+}

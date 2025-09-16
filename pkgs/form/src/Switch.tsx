@@ -1,10 +1,8 @@
 "use client";
 
-import {
-  Icon,
-  iconRegularToggleLargeOff,
-  iconRegularToggleLargeOn,
-} from "@wrkspc/icons";
+import { Icon } from "@wrkspc/icons";
+import iconRegularToggleLargeOff from "@wrkspc/icons/svg/regular/toggle-large-off.js";
+import iconRegularToggleLargeOn from "@wrkspc/icons/svg/regular/toggle-large-on.js";
 import { Size, translateSize } from "@wrkspc/theme";
 import { anyErrors, Errors, WithErrorsProps } from "@wrkspc/ui";
 import { cn } from "crab";

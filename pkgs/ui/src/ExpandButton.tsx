@@ -1,4 +1,5 @@
-import { iconRegularAngleDown, iconRegularAngleUp } from "@wrkspc/icons";
+import iconRegularAngleDown from "@wrkspc/icons/svg/regular/angle-down.js";
+import iconRegularAngleUp from "@wrkspc/icons/svg/regular/angle-up.js";
 import { cn } from "crab";
 import { Button } from "./Button";
 
