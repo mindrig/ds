@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.1.12",
-    "@wrkspc/ts": "workspace:*"
+    "@wrkspc/ts": "workspace:*",
+    "glob": "^11.0.3"
   }
 }
