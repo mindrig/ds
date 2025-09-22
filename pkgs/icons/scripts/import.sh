@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -eo pipefail
 
 variant="fontawesome-pro"
 styles=("brands" "light" "regular" "solid")
@@ -9,9 +9,13 @@ tmp_dir="./tmp"
 
 echo -e "⚡️ Importing latest Font Awesome\n"
 
+if [ -z "${FONTAWESOME_PACKAGE_TOKEN}" ]; then
+  echo "🔴 FONTAWESOME_PACKAGE_TOKEN is not set. See .env.local.example"
+  exit 1
+fi
+
 # Navigate to the pkg root to activate .npmrc
 root_dir="$(dirname "$0")/.."
-cd "$root_dir"
 
 version_hash="$(cat .fontawesomerc | sha256sum | cut -c1-8)"
 echo "🔵 Version hash: $version_hash"
@@ -21,7 +25,9 @@ versioned_name="$variant-$version_hash"
 tarball_path="$tmp_dir/$versioned_name.tgz"
 files_path="$tmp_dir/$versioned_name"
 
-tarball_url="$(pnpm view "$pkg_name" --json | jaq -r ".dist.tarball")"
+mkdir -p "$tmp_dir"
+
+tarball_url="$(pnpm view "$pkg_name" --json --no-workspaces | jaq -r ".dist.tarball")"
 tarball_name=$(basename "$tarball_url")
 
 if [ -f "$tarball_path" ]; then

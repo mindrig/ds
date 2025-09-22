@@ -2,7 +2,7 @@
   "$schema": "https://turborepo.com/schema.json",
   "tasks": {
     "setup": {
-      "dependsOn": ["build/generate"]
+      "dependsOn": ["build"]
     },
 
     "build": {
