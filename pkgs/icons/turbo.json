@@ -16,6 +16,7 @@
     },
 
     "build/import": {
+      "dependsOn": ["//#install/npm"],
       "inputs": ["$TURBO_DEFAULT$", "./.fontawesomerc", "./scripts/import.sh"],
       "outputs": ["./dist/**/*.svg"],
       "env": ["FONTAWESOME_PACKAGE_TOKEN"]
