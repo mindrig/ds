@@ -5,11 +5,19 @@
   "exports": {
     ".": "./src/index.ts"
   },
+  "scripts": {
+    "types": "tsc",
+    "types:watch": "tsc --watch"
+  },
   "dependencies": {
     "@wrkspc/form": "workspace:*",
     "@wrkspc/icons": "workspace:*",
     "@wrkspc/props": "workspace:*",
     "@wrkspc/theme": "workspace:*",
     "@wrkspc/ui": "workspace:*"
+  },
+  "devDependencies": {
+    "@wrkspc/ts": "workspace:*",
+    "typescript": "^5.9.2"
   }
 }

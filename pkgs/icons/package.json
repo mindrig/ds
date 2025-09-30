@@ -11,7 +11,9 @@
   "scripts": {
     "build": "test -z $TURBO_HASH && turbo run build || echo OK",
     "build/import": "./scripts/import.sh",
-    "build/generate": "./scripts/generate.ts"
+    "build/generate": "./scripts/generate.ts",
+    "types": "tsc",
+    "types:watch": "tsc --watch"
   },
   "dependencies": {
     "@wrkspc/theme": "workspace:*",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "@types/react": "^19.1.16",
     "@wrkspc/ts": "workspace:*",
-    "glob": "^11.0.3"
+    "glob": "^11.0.3",
+    "typescript": "^5.9.2"
   }
 }

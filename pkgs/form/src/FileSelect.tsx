@@ -77,7 +77,7 @@ export function FileSelect(props: FileSelectProps) {
         >
           <div className="flex gap-2 items-center">
             <Button
-              isDisabled={isDisabled}
+              isDisabled={!!isDisabled}
               size={size}
               style="transparent"
               slot={!!onSelect}

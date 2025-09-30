@@ -29,7 +29,9 @@ export interface ButtonProps
 }
 
 export function Button(
-  props: React.PropsWithChildren<ButtonProps | ButtonLinkProps>,
+  props:
+    | React.PropsWithChildren<ButtonProps>
+    | React.PropsWithChildren<ButtonLinkProps>,
 ) {
   const { size, color, style, align, icon, tag, children, slot, ...restProps } =
     props;

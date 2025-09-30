@@ -26,6 +26,7 @@ export function FileSelectController<Multi extends boolean = false>(
           // memoize FileList, so it can't be done here.
           // value={value}
           onSelect={(files) => {
+            // @ts-expect-error -- It's too complex to type this correctly.
             onChange(multi ? files : (files?.[0] ?? null));
           }}
           errors={errors}
