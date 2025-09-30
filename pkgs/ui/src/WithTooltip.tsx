@@ -19,7 +19,7 @@ export function WithTooltip(props: PropsWithChildren<WithTooltipProps>) {
   const { children, tooltip, className, onPress, ...restProps } = props;
   return (
     <TooltipTrigger {...restProps} delay={200}>
-      <Button className={className} onPress={onPress}>
+      <Button className={className || ""} onPress={onPress || (() => {})}>
         {props.children}
       </Button>
 

@@ -1,9 +1,6 @@
 {
   "extends": "@wrkspc/ts/base",
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
-  "references": [
-    { "path": "../icons" },
-    { "path": "../theme" },
-    { "path": "../props" }
-  ]
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM"]
+  }
 }

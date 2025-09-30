@@ -48,8 +48,8 @@ export function Menu(props: PropsWithChildren<MenuProps>) {
         <RAMenu className={cns.menu}>
           {items.map((item) => (
             <MenuItem
-              onAction={item.onAction}
-              href={item.href}
+              onAction={item.onAction || (() => {})}
+              href={item.href || ""}
               className={cns.item}
               key={item.label}
             >

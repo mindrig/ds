@@ -30,8 +30,8 @@ export function Flyout(props: React.PropsWithChildren<FlyoutProps>) {
 
       <Popover
         className={flyoutCn(props)}
-        triggerRef={inline ? triggerRef : undefined}
-        placement={inline ? "bottom left" : undefined}
+        triggerRef={inline ? triggerRef : { current: null }}
+        placement={inline ? "bottom left" : "bottom"}
         offset={inline ? 0 : 8}
       >
         <Dialog>{children}</Dialog>

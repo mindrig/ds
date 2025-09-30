@@ -78,12 +78,13 @@ export function Button(
     </>
   );
 
-  if ("href" in restProps)
+  if ("href" in restProps) {
     return (
-      <Link className={className} {...restProps}>
+      <Link className={className} {...restProps} href={restProps.href || ""}>
         {content}
       </Link>
     );
+  }
 
   // Unless specified, set slot to null, so when i.e. button is rendered
   // inside select component (as label action), it won't trigger select open.
@@ -100,7 +101,7 @@ export function Button(
             slot;
 
   return (
-    <ButtonComponent className={className} {...restProps} slot={raSlot}>
+    <ButtonComponent className={className} {...restProps} slot={raSlot || null}>
       {content}
     </ButtonComponent>
   );

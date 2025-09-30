@@ -30,7 +30,7 @@ export function Switch(props: SwitchProps) {
   const cns = switchCn({ size });
 
   return (
-    <RASwitch {...restProps} isSelected={value}>
+    <RASwitch {...restProps} isSelected={!!value}>
       {({ isSelected }) => (
         <div className={cns.wrapper}>
           <div className={cns.inner}>

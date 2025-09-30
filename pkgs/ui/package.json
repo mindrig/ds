@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "types": "tsc",
+    "types:watch": "tsc --watch"
+  },
   "exports": {
     ".": "./src/index.ts"
   },
@@ -17,7 +20,9 @@
     "react-aria-components": "^1.12.1"
   },
   "devDependencies": {
+    "@storybook/react": "^9.1.7",
     "@types/react": "^19.1.12",
-    "@wrkspc/ts": "workspace:*"
+    "@wrkspc/ts": "workspace:*",
+    "typescript": "^5.9.2"
   }
 }

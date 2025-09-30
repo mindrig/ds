@@ -47,8 +47,8 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
 
 interface SubmitProps {
   title: string;
-  color?: "action" | "cta" | "danger";
-  pending?: boolean;
+  color?: "action" | "cta" | "danger" | undefined;
+  pending?: boolean | undefined;
 }
 
 function Submit(props: SubmitProps) {

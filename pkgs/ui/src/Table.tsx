@@ -5,12 +5,10 @@ import { ReactNode } from "react";
 import {
   Cell,
   Column,
-  Row,
   Table as RATable,
+  Row,
   TableBody,
   TableHeader,
-  TableBodyProps,
-  TableBodyRenderProps,
 } from "react-aria-components";
 
 export interface TableHeader {
@@ -54,7 +52,7 @@ export function Table(props: TableProps) {
             return obj ? (
               <Column
                 key={index}
-                id={obj.id}
+                id={obj.id || ""}
                 isRowHeader={rowHeaderIndex === index}
                 className={cn(
                   "py-2 px-4 text-left font-semibold text-gray-600",
@@ -76,14 +74,16 @@ export function Table(props: TableProps) {
         </TableHeader>
       )}
 
-      <TableBody renderEmptyState={props.empty ? () => props.empty : undefined}>
+      <TableBody
+        renderEmptyState={props.empty ? () => props.empty : () => null}
+      >
         {props.body.map((row, index) => {
           const [rowObj, rowNodes] = normalize(row);
           const cells = rowObj ? rowObj.content : rowNodes;
           return (
             <Row
               key={index}
-              href={rowObj?.href}
+              href={rowObj?.href || ""}
               className={cn(rowObj?.href && "hover:bg-gray-100 cursor-pointer")}
             >
               {cells.map((cell, index) => {
