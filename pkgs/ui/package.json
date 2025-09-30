@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@storybook/react": "^9.1.7",
-    "@types/react": "^19.1.12",
+    "@types/react": "^19.1.16",
     "@wrkspc/ts": "workspace:*",
     "typescript": "^5.9.2"
   }

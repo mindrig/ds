@@ -22,7 +22,7 @@
     "react-dom": "19.1.1"
   },
   "devDependencies": {
-    "@types/react": "19.1.12",
+    "@types/react": "19.1.16",
     "@types/react-dom": "^19.1.9",
     "@wrkspc/ts": "workspace:*",
     "typescript": "^5.9.2"
