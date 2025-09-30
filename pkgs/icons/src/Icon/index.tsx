@@ -25,19 +25,21 @@ export function Icon(props: IconProps) {
   //   <Icon id={props.icon} size="xlarge" color="support" />
   // Where `props.icon` is `IconProp`. Whatever is defined will override
   // the explicitly size and color props.
-  const [id, iconProps] =
-    typeof props.id === "string"
-      ? [props.id, props]
-      : [props.id.id, { ...props, ...props.id }];
+  const { id: idProp, ...restProps } = props;
+  const [id, cnProps] =
+    typeof idProp === "string"
+      ? [idProp, props]
+      : [idProp.id, { ...props, ...idProp }];
 
   return (
     <div
-      className={cn(iconBaseCn(iconProps), iconMaskCn(iconProps))}
+      className={cn(iconBaseCn(cnProps), iconMaskCn(cnProps))}
       style={{
         // TODO: Migrate Mind Control to the new approach. Here's the previous URL:
         // mask: `url(https://assets.mindcontrol.studio/icons/${id}) no-repeat center / contain`,
         mask: `url(${id}) no-repeat center / contain`,
       }}
+      {...restProps}
     />
   );
 }
