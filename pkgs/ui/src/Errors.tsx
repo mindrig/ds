@@ -8,7 +8,7 @@ export interface ErrorsProps extends cn.Props<typeof errorsCn> {
 }
 
 export interface WithErrorsProps {
-  errors?: ErrorsProp | undefined;
+  errors?: ErrorsProp | undefined | null;
 }
 
 export type ErrorsProp = string | Field.Error | string[] | Field.Error[];
@@ -45,7 +45,9 @@ export function renderErrors(
   return anyErrors(errors) ? <Errors {...{ ...props, errors }} /> : null;
 }
 
-export function anyErrors(errors?: ErrorsProp): errors is ErrorsProp {
+export function anyErrors(
+  errors?: ErrorsProp | null | undefined,
+): errors is ErrorsProp {
   return Array.isArray(errors) ? !!errors.length : !!errors;
 }
 
