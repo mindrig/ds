@@ -5,7 +5,7 @@ import { Size } from "@wrkspc/theme";
 import { cn } from "crab";
 import React, { useRef } from "react";
 import { Dialog, DialogTrigger, Popover } from "react-aria-components";
-import { Button, ButtonProps } from "./Button.tsx";
+import { Button, ButtonProps } from "./Button.js";
 
 export interface FlyoutProps extends cn.Props<typeof flyoutCn> {
   button?: ComponentProp<ButtonProps> | undefined;
