@@ -9,10 +9,10 @@ import { Label, labelProps, LabelValue } from "./Label";
 import { fieldCn, FieldCnProps, InputCnProps } from "./classNames";
 
 export interface FileSelectProps
-  extends React.ComponentPropsWithRef<"input">,
+  extends React.RefAttributes<HTMLInputElement>,
     Omit<
       React.ComponentProps<typeof FileTrigger>,
-      "onSelect" | "allowsMultiple"
+      "onSelect" | "allowsMultiple" | "ref"
     >,
     FieldCnProps,
     InputCnProps,
@@ -26,9 +26,7 @@ export interface FileSelectProps
   onSelect?: (value: FileList | null) => void;
 }
 
-export function FileSelect(
-  props: React.ComponentPropsWithRef<"input"> & FileSelectProps,
-) {
+export function FileSelect(props: FileSelectProps) {
   const {
     name,
     label,
