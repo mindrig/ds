@@ -7,14 +7,14 @@ import React, { useCallback, useEffect, useRef } from "react";
 import { TextArea as RATextArea, TextField } from "react-aria-components";
 import { fieldCn, FieldCnProps, InputCnProps } from "./classNames";
 import { Description } from "./Description";
-import { Label, labelProps, LabelValue } from "./Label";
+import { Label, labelA11yProps, labelProps, LabelValue } from "./Label";
 
 export interface TextAreaProps
   extends Omit<React.ComponentProps<typeof TextField>, "ref">,
     FieldCnProps,
     InputCnProps,
     WithErrorsProps {
-  label?: LabelValue | undefined;
+  label: LabelValue;
   description?: string | undefined;
   placeholder?: string | undefined;
   ref?: React.Ref<HTMLTextAreaElement | null>;
@@ -34,7 +34,11 @@ export function TextArea(props: TextAreaProps) {
   const { textAreaRef, onHeightChange } = useTextAreaAutoSize();
 
   return (
-    <TextField {...restProps} className={fieldCn({ size })}>
+    <TextField
+      {...restProps}
+      {...labelA11yProps(label)}
+      className={fieldCn({ size })}
+    >
       {label && <Label {...labelProps(label)} size={size} />}
 
       <RATextArea
