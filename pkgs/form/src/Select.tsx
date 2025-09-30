@@ -64,6 +64,7 @@ export function Select<Payload extends string | number>(
     isDisabled,
     italic,
     mono,
+    placeholder,
     ...restProps
   } = props;
 
@@ -72,6 +73,7 @@ export function Select<Payload extends string | number>(
       className={fieldCn({ size })}
       {...restProps}
       {...labelA11yProps(label)}
+      placeholder={placeholder || ""}
     >
       {label && <Label {...labelProps(label)} size={size} />}
 
@@ -82,15 +84,15 @@ export function Select<Payload extends string | number>(
           isDisabled={!!isDisabled}
         >
           <SelectValue>
-            {({ selectedText }) => (
-              <div className={selectButtonContentCn({ size })}>
+            {({ selectedText, isPlaceholder }) => (
+              <div className={selectButtonContentCn({ size, isPlaceholder })}>
                 {icon && <Icon id={icon} size={size} color="detail" />}
-                <span>{selectedText}</span>
+                <span>{isPlaceholder ? placeholder : selectedText}</span>
               </div>
             )}
           </SelectValue>
 
-          <Icon id={iconSolidCaretDown} color="support" />
+          <Icon id={iconSolidCaretDown} color="support" aria-hidden />
         </Button>
       ))}
 
@@ -133,13 +135,19 @@ export function Select<Payload extends string | number>(
   );
 }
 
-export const selectButtonContentCn = cn<{ size: Size }>()
+export const selectButtonContentCn = cn<{
+  size: Size;
+  isPlaceholder: boolean;
+}>()
   .base("flex items-center whitespace-nowrap")
   .size("medium", {
     xsmall: "gap-1",
     small: "gap-1",
     medium: "gap-2",
     large: "gap-2",
+  })
+  .isPlaceholder(false, {
+    true: "text-input-placeholder italic",
   });
 
 export const selectListCn = cn<{ size: Size }>()
