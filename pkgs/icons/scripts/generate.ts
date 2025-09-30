@@ -28,10 +28,10 @@ await promiseQueue(
     const tsPath = path.replace(/\.svg$/, ".ts");
     await writeFile(
       tsPath,
-      `import type { IconId } from "@";
+      `/// <reference path="../../env.d.ts" />
 import url from "./${name}.svg?no-inline";
 
-const ${id}: IconId = url;
+const ${id} = url;
 export default ${id};`,
     );
   }),
