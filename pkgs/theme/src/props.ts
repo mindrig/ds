@@ -1,4 +1,4 @@
-export type Color = "main" | "support" | "detail";
+export type Color = "main" | "support" | "detail" | "current";
 
 export type Background = "primary" | "secondary";
 

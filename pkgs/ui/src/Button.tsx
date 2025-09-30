@@ -36,7 +36,12 @@ export function Button(
 
   const className = buttonCn({ size, color, style, align });
 
-  const iconColor = color === "secondary" ? "detail" : "support";
+  const iconColor =
+    color === "secondary"
+      ? "detail"
+      : color === "current"
+        ? "current"
+        : "support";
   const iconSize = translateSize(size, -1);
   const iconInverse = !style || style === "solid" ? true : false;
 
@@ -109,7 +114,13 @@ export function ButtonTag(props: PropsWithChildren) {
   );
 }
 
-export type ButtonColor = "primary" | "secondary" | "cta" | "action" | "danger";
+export type ButtonColor =
+  | "primary"
+  | "secondary"
+  | "cta"
+  | "action"
+  | "danger"
+  | "current";
 
 export type ButtonStyle = "transparent" | "label" | "solid";
 
@@ -193,6 +204,15 @@ export const buttonCn = cn<{
         solid: "bg-red-800 text-white hover:bg-red-700",
         transparent:
           "text-red-950/80 hover:bg-red-50 border-red-300 hover:border-red-400",
+      },
+    },
+    current: {
+      style: {
+        // TODO: Find a way to make it work
+        solid:
+          "bg-[currentColor] text-white mix-blend-difference hover:bg-[color-mix(in srgb, currentColor 80%, transparent)]",
+        transparent:
+          "text-[currentColor] hover:bg-[color-mix(in srgb, currentColor 80%, transparent)] hover:text-white hover:mix-blend-difference border-[currentColor] hover:border-[color-mix(in srgb, currentColor 80%, transparent)]",
       },
     },
   })

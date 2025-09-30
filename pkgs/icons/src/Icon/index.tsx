@@ -51,7 +51,8 @@ export type IconColor =
   | "detail"
   | "brand"
   | "danger"
-  | "success";
+  | "success"
+  | "current";
 
 export const iconMaskCn = cn<{
   color: IconColor;
@@ -93,6 +94,16 @@ export const iconMaskCn = cn<{
     brand: ["bg-lime-500" /* TODO: */],
     danger: ["bg-red-500" /* TODO: */],
     success: ["bg-green-500" /* TODO: */],
+    current: [
+      [{ inverse: false }, "bg-[currentColor]"],
+      [
+        { inverse: false, trigger: true },
+        "hover:bg-[color-mix(in srgb, currentColor 80%, transparent)]",
+      ],
+      // TODO: Inverse
+      // [{ inverse: true }, "bg-icon-support-inverse"],
+      // [{ inverse: true, trigger: true }, "hover:bg-icon-support-inverse-hover"],
+    ],
   })
   .trigger(false)
   .inverse(false);

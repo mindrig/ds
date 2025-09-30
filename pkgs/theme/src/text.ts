@@ -36,6 +36,11 @@ export const textCn = cn<{
       [{ inverse: true }, "text-ink-support-inverse"],
     ],
     detail: ["text-ink-detail", [{ inverse: true }, "text-ink-detail-inverse"]],
+    current: [
+      "text-[currentColor]",
+      // TODO:
+      // [{ inverse: true }, "text-[currentColor]"]
+    ],
   })
   .size("medium")
   .role("body", {

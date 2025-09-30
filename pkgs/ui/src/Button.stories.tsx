@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import type { IconId } from "@wrkspc/icons";
 
-import { Button, type ButtonLinkProps, type ButtonProps } from "./Button";
+import iconSolidThumbtack from "@wrkspc/icons/svg/solid/thumbtack.js";
+import { Button, type ButtonLinkProps } from "./Button";
 
 const demoIcon =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 15h-2v-2h2Zm0-4h-2V7h2Z'/%3E%3C/svg%3E" as IconId;
@@ -84,4 +85,29 @@ export const AsLink: Story = {
     rel: "noreferrer",
     children: "Open Docs",
   } satisfies ButtonLinkProps,
+};
+
+export const CurrentColorSolid: Story = {
+  args: {
+    color: "current",
+    style: "solid",
+    children: "Log In",
+  },
+};
+
+export const CurrentColorTransparent: Story = {
+  args: {
+    color: "current",
+    style: "transparent",
+    children: "Log In",
+  },
+};
+
+export const CurrentColorIcon: Story = {
+  args: {
+    color: "current",
+    style: "label",
+    icon: iconSolidThumbtack,
+    children: null,
+  },
 };
