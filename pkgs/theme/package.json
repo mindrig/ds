@@ -8,8 +8,8 @@
     "./default": "./src/default.css"
   },
   "scripts": {
-    "types": "tsc",
-    "types:watch": "tsc --watch"
+    "types": "$(pnpm root -w)/../scripts/pkg-types.sh || tsc",
+    "types:watch": "$(pnpm root -w)/../scripts/pkg-types.sh watch || tsc --watch"
   },
   "dependencies": {
     "crab": "^1.12.0"

@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "types": "tsc",
-    "types:watch": "tsc --watch"
+    "types": "$(pnpm root -w)/../scripts/pkg-types.sh || tsc",
+    "types:watch": "$(pnpm root -w)/../scripts/pkg-types.sh watch || tsc --watch"
   },
   "exports": {
     ".": "./src/index.ts"

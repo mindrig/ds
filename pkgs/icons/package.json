@@ -12,8 +12,8 @@
     "build": "test -z $TURBO_HASH && turbo run build || echo OK",
     "build/import": "./scripts/import.sh",
     "build/generate": "./scripts/generate.ts",
-    "types": "tsc",
-    "types:watch": "tsc --watch"
+    "types": "$(pnpm root -w)/../scripts/pkg-types.sh || tsc",
+    "types:watch": "$(pnpm root -w)/../scripts/pkg-types.sh watch || tsc --watch"
   },
   "dependencies": {
     "@wrkspc/theme": "workspace:*",

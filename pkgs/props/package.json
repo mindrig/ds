@@ -7,8 +7,8 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "types": "tsc",
-    "types:watch": "tsc --watch"
+    "types": "$(pnpm root -w)/../scripts/pkg-types.sh || tsc",
+    "types:watch": "$(pnpm root -w)/../scripts/pkg-types.sh watch || tsc --watch"
   },
   "devDependencies": {
     "@types/react": "^19.1.16",
