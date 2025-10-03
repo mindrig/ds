@@ -75,7 +75,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 icon: !!icon,
                 mono,
               })}
-              placeholder={placeholder}
+              placeholder={placeholder || ""}
               ref={ref}
             />
           </div>

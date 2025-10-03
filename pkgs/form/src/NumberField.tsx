@@ -52,7 +52,7 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
           <div className="relative w-full">
             <RAInput
               className={inputCn({ size, prefix: !!prefix, mono })}
-              placeholder={placeholder}
+              placeholder={placeholder || ""}
               ref={ref}
             />
           </div>
