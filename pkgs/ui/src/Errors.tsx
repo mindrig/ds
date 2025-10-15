@@ -46,7 +46,7 @@ export function renderErrors(
 }
 
 export function anyErrors(
-  errors?: ErrorsProp | null | undefined,
+  errors?: ErrorsProp | undefined | null,
 ): errors is ErrorsProp {
   return Array.isArray(errors) ? !!errors.length : !!errors;
 }

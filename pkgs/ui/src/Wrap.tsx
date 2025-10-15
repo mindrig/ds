@@ -3,7 +3,7 @@ import React from "react";
 export interface WrapProps {
   into: (
     children: React.ReactNode | undefined,
-  ) => React.ReactNode | null | undefined | false | 0 | "";
+  ) => React.ReactNode | undefined | null | false | 0 | "";
 }
 
 export function Wrap(props: React.PropsWithChildren<WrapProps>) {
