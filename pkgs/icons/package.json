@@ -18,12 +18,12 @@
   "dependencies": {
     "@wrkspc/theme": "workspace:*",
     "crab": "^1.12.0",
-    "react": "19.1.1"
+    "react": "19.2.0"
   },
   "devDependencies": {
-    "@types/react": "^19.1.16",
+    "@types/react": "^19.2.2",
     "@wrkspc/ts": "workspace:*",
     "glob": "^11.0.3",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   }
 }

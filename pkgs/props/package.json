@@ -11,8 +11,8 @@
     "types:watch": "$(pnpm root -w)/../scripts/pkg-types.sh watch || tsc --watch"
   },
   "devDependencies": {
-    "@types/react": "^19.1.16",
+    "@types/react": "^19.2.2",
     "@wrkspc/ts": "workspace:*",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   }
 }
