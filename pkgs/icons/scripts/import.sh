@@ -9,8 +9,10 @@ tmp_dir="./tmp"
 
 echo -e "⚡️ Importing latest Font Awesome\n"
 
-if [ -z "${FONTAWESOME_PACKAGE_TOKEN}" ]; then
-  echo "🔴 FONTAWESOME_PACKAGE_TOKEN is not set. See .env.local.example"
+fontawesome_token="$(fnox get FONTAWESOME_PACKAGE_TOKEN)"
+
+if [ -z "$fontawesome_token" ]; then
+  echo "🔴 FONTAWESOME_PACKAGE_TOKEN is not available. Please make sure to configure fnox."
   exit 1
 fi
 
@@ -36,7 +38,7 @@ else
   echo "🔵 Downloading $pkg_name from $tarball_url..."
   curl -L \
     -sSfL \
-    -H "Authorization: Bearer $FONTAWESOME_PACKAGE_TOKEN" \
+    -H "Authorization: Bearer $fontawesome_token" \
     "$tarball_url" \
     -o "$tarball_path" > /dev/null
 fi
