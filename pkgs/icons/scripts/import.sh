@@ -29,7 +29,7 @@ files_path="$tmp_dir/$versioned_name"
 
 mkdir -p "$tmp_dir"
 
-tarball_url="$(pnpm view "$pkg_name" --json --no-workspaces | jaq -r ".dist.tarball")"
+tarball_url="$(env FONTAWESOME_PACKAGE_TOKEN="$fontawesome_token" pnpm view "$pkg_name" --json --no-workspaces | jaq -r ".dist.tarball")"
 tarball_name=$(basename "$tarball_url")
 
 if [ -f "$tarball_path" ]; then
