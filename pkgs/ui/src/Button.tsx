@@ -180,10 +180,11 @@ export const buttonCn = cn<{
   .color("primary", {
     primary: {
       style: {
-        solid: "bg-gray-500 text-white hover:bg-gray-400",
+        solid:
+          "bg-button-solid-canvas hover:bg-button-solid-canvas-hover text:button-solid-ink hover:text-button-solid-ink-hover",
         transparent:
-          "text-gray-700 hover:bg-gray-50 border-gray-300 hover:border-gray-400",
-        label: "text-gray-700 hover:text-gray-950",
+          "text-button-label-ink hover:text-button-label-ink-hover hover:bg-button-transparent-canvas-hover border-button-transparent-border hover:border-button-transparent-border-hover",
+        label: "text-button-label-ink hover:text-button-label-ink-hover",
       },
     },
     secondary: {
