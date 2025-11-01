@@ -1,11 +1,20 @@
 import { Field } from "enso";
 import { Input, InputProps } from "./Input";
 
-export interface InputControllerProps extends Omit<InputProps, "ref"> {
-  field: Field<string>;
+export type InputControllerProps<
+  Value extends string | number | null | undefined,
+> = InputController.Props<Value>;
+
+export namespace InputController {
+  export interface Props<Value extends string | number | null | undefined>
+    extends Omit<InputProps<Value>, "ref"> {
+    field: Field<Value>;
+  }
 }
 
-export function InputController(props: InputControllerProps) {
+export function InputController<
+  Value extends string | number | null | undefined,
+>(props: InputController.Props<Value>) {
   const { field, ...restProps } = props;
   return (
     <Field.Component

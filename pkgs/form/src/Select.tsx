@@ -21,37 +21,49 @@ import { Description } from "./Description";
 import { Label, labelA11yProps, labelProps, LabelValue } from "./Label";
 import { fieldCn, FieldCnProps, inputCn, InputCnProps } from "./classNames";
 
-export interface SelectOption<Payload extends string | number> {
-  label?: string | undefined;
-  value: Payload;
-}
+export type SelectOption<Payload extends string | number> =
+  Select.Option<Payload>;
 
-export type SelectOptions<Payload extends string | number> = Array<
-  SelectOption<Payload>
->;
+export type SelectOptions<Payload extends string | number> =
+  Select.Options<Payload>;
 
 export type SelectOptionItem<Payload extends string | number> =
-  | SelectOption<Payload>
-  | false
-  | undefined
-  | null;
+  Select.OptionItem<Payload>;
 
-export interface SelectProps<Payload extends string | number>
-  extends React.ComponentProps<typeof RASelect>,
-    FieldCnProps,
-    Omit<InputCnProps, "icon">,
-    WithErrorsProps {
-  label: LabelValue;
-  button?: ComponentProp<ButtonProps> | undefined;
-  icon?: IconProp | undefined;
-  description?: string | undefined;
-  options: Array<SelectOptionItem<Payload>>;
-  italic?: boolean;
-  mono?: boolean;
+export type SelectProps<Payload extends string | number> =
+  Select.Props<Payload>;
+
+export namespace Select {
+  export interface Option<Payload extends string | number> {
+    label?: string | undefined;
+    value: Payload;
+  }
+
+  export type Options<Payload extends string | number> = Array<Option<Payload>>;
+
+  export type OptionItem<Payload extends string | number> =
+    | Option<Payload>
+    | false
+    | undefined
+    | null;
+
+  export interface Props<Payload extends string | number>
+    extends React.ComponentProps<typeof RASelect>,
+      FieldCnProps,
+      Omit<InputCnProps, "icon">,
+      WithErrorsProps {
+    label: LabelValue;
+    button?: ComponentProp<ButtonProps> | undefined;
+    icon?: IconProp | undefined;
+    description?: string | undefined;
+    options: Array<OptionItem<Payload>>;
+    italic?: boolean;
+    mono?: boolean;
+  }
 }
 
 export function Select<Payload extends string | number>(
-  props: SelectProps<Payload>,
+  props: Select.Props<Payload>,
 ) {
   const {
     button,

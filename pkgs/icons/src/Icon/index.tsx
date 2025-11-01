@@ -3,21 +3,34 @@ import { cn } from "crab";
 import { type HTMLProps } from "react";
 import { type IconId } from "..";
 
-export interface IconProps
-  extends Omit<HTMLProps<HTMLDivElement>, "id" | "color" | "size">,
-    cn.Props<typeof iconBaseCn>,
-    cn.Props<typeof iconMaskCn> {
-  id: IconProp;
-}
+export type IconProps = Icon.Props;
 
-export interface IconBaseProps
-  extends cn.Props<typeof iconBaseCn>,
-    cn.Props<typeof iconMaskCn> {
-  id: IconId;
-  className?: string | undefined;
-}
+export type IconBaseProps = Icon.PropsBase;
 
-export type IconProp = IconId | IconBaseProps;
+export type IconProp = Icon.Prop;
+
+export namespace Icon {
+  export interface Props
+    extends Omit<HTMLProps<HTMLDivElement>, "id" | "color" | "size">,
+      cn.Props<typeof iconBaseCn>,
+      cn.Props<typeof iconMaskCn> {
+    id: Prop;
+  }
+
+  export interface PropsBase
+    extends cn.Props<typeof iconBaseCn>,
+      cn.Props<typeof iconMaskCn> {
+    id: IconId;
+    className?: string | undefined;
+  }
+
+  export type Prop = IconId | PropsBase | PropHref;
+
+  export interface PropHref {
+    type: "svg";
+    href: string;
+  }
+}
 
 export function Icon(props: IconProps) {
   // This allows passing either the icon id or an object with the id and
@@ -29,7 +42,7 @@ export function Icon(props: IconProps) {
   const [id, cnProps] =
     typeof idProp === "string"
       ? [idProp, props]
-      : [idProp.id, { ...props, ...idProp }];
+      : ["href" in idProp ? idProp.href : idProp.id, { ...props, ...idProp }];
 
   return (
     <div
