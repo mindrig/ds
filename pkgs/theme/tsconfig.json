@@ -1,3 +1,4 @@
 {
-  "extends": "@wrkspc/ts/base"
+  "extends": "@wrkspc/ts/base",
+  "references": []
 }

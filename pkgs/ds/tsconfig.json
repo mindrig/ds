@@ -2,5 +2,13 @@
   "extends": "@wrkspc/ts/base",
   "compilerOptions": {
     "lib": ["ESNext", "DOM"]
-  }
+  },
+  "references": [
+    { "path": "../form/" },
+    { "path": "../icons/" },
+    { "path": "../modal/" },
+    { "path": "../props/" },
+    { "path": "../theme/" },
+    { "path": "../ui/" }
+  ]
 }

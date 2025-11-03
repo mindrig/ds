@@ -12,6 +12,7 @@
   "dependencies": {
     "@wrkspc/form": "workspace:*",
     "@wrkspc/icons": "workspace:*",
+    "@wrkspc/modal": "workspace:*",
     "@wrkspc/props": "workspace:*",
     "@wrkspc/theme": "workspace:*",
     "@wrkspc/ui": "workspace:*"
