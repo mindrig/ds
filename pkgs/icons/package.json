@@ -12,8 +12,8 @@
     "build": "test -z $TURBO_HASH && turbo run build || echo OK",
     "build/import": "./scripts/import.sh",
     "build/generate": "./scripts/generate.ts",
-    "types": "$(pnpm root -w)/../scripts/pkg-types.sh || tsc",
-    "types:watch": "$(pnpm root -w)/../scripts/pkg-types.sh watch || tsc --watch"
+    "types": "script_path=\"$(pnpm root -w)/../scripts/pkg-types.sh\"; if [ -f \"$script_path\" ]; then \"$script_path\"; else tsc --build; fi",
+    "types:watch": "script_path=\"$(pnpm root -w)/../scripts/pkg-types.sh\"; if [ -f \"$script_path\" ]; then \"$script_path\" watch; else tsc --build --watch; fi"
   },
   "dependencies": {
     "@wrkspc/theme": "workspace:*",
