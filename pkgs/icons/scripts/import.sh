@@ -53,7 +53,7 @@ rm -rf "$out_dir"
 mkdir -p "$out_dir"
 
 for style in "${styles[@]}"; do
-  cp -r "$files_path/svgs-full/$style/" "$out_dir"
+  cp -r "$files_path/svgs-full/$style/" "$out_dir/$style"
 done
 
 echo "🔵 Cleaning up..."
