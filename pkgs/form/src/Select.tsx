@@ -7,7 +7,6 @@ import { ComponentProp, componentPropResolve } from "@wrkspc/props";
 import { Size } from "@wrkspc/theme";
 import { renderErrors, WithErrorsProps } from "@wrkspc/ui";
 import { cn } from "crab";
-import React from "react";
 import {
   Button,
   ButtonProps,
@@ -30,7 +29,7 @@ export type SelectOptions<Payload extends string | number> =
 export type SelectOptionItem<Payload extends string | number> =
   Select.OptionItem<Payload>;
 
-export type SelectProps<Payload extends string | number> =
+export type SelectProps<Payload extends string | number | null | undefined> =
   Select.Props<Payload>;
 
 export namespace Select {
@@ -47,18 +46,24 @@ export namespace Select {
     | undefined
     | null;
 
-  export interface Props<Payload extends string | number>
-    extends React.ComponentProps<typeof RASelect>,
-      FieldCnProps,
+  export interface Props<Payload extends string | number | null | undefined>
+    // TODO: Reenable extending React Aria Components props when the optional
+    // props missing undefined issue is fixed.
+    // extends  Omit<React.ComponentProps<typeof RASelect>, "selectedKey">
+    extends FieldCnProps,
       Omit<InputCnProps, "icon">,
       WithErrorsProps {
     label: LabelValue;
     button?: ComponentProp<ButtonProps> | undefined;
     icon?: IconProp | undefined;
     description?: string | undefined;
-    options: Array<OptionItem<Payload>>;
+    placeholder?: string | undefined;
+    options: Array<OptionItem<Payload & {}>>;
     italic?: boolean;
     mono?: boolean;
+    isDisabled?: boolean | undefined;
+    value?: Payload | null | undefined;
+    onChange?: (key: Payload | null) => void;
   }
 }
 
@@ -77,6 +82,8 @@ export function Select<Payload extends string | number>(
     italic,
     mono,
     placeholder,
+    value,
+    onChange,
     ...restProps
   } = props;
 
@@ -86,6 +93,8 @@ export function Select<Payload extends string | number>(
       {...restProps}
       {...labelA11yProps(label)}
       placeholder={placeholder || ""}
+      value={value ?? null}
+      onChange={(value) => onChange?.(value as Payload)}
     >
       {label && <Label {...labelProps(label)} size={size} />}
 
