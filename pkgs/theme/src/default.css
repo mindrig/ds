@@ -37,20 +37,39 @@
 
   /*## Button */
 
-  /*### Colors */
+  /*### Style */
 
-  /* Solid */
+  /***** Solid */
   --color-button-solid-canvas: var(--color-gray-500);
   --color-button-solid-canvas-hover: var(--color-gray-400);
   --color-button-solid-ink: var(--color-white);
   --color-button-solid-ink-hover: var(--color-white);
-  /* Label */
+
+  /***** Label */
   --color-button-label-ink: var(--color-gray-700);
   --color-button-label-ink-hover: var(--color-gray-950);
-  /* Transparent */
+  /*----- Secondary */
+  --color-button-secondary-label-ink: var(--color-gray-500);
+  --color-button-secondary-label-ink-hover: var(--color-gray-950);
+
+  /***** Transparent */
+  --color-button-transparent-ink: var(--color-button-label-ink);
+  --color-button-transparent-ink-hover: var(--color-button-label-ink-hover);
+  --color-button-transparent-canvas: transparent;
   --color-button-transparent-canvas-hover: var(--color-gray-50);
   --color-button-transparent-border: var(--color-gray-300);
   --color-button-transparent-border-hover: var(--color-gray-400);
+  /*----- Secondary */
+  --color-button-transparent-ink: var(--color-button-secondary-label-ink);
+  --color-button-transparent-ink-hover: var(
+    --color-button-secondary-label-ink-hover
+  );
+  --color-button-transparent-secondary-ink: var(--color-gray-500);
+  --color-button-transparent-secondary-ink-hover: var(--color-gray-500);
+  --color-button-transparent-secondary-canvas: transparent;
+  --color-button-transparent-secondary-canvas-hover: var(--color-gray-50);
+  --color-button-transparent-secondary-border: var(--color-gray-300);
+  --color-button-transparent-secondary-border-hover: var(--color-gray-400);
 
   /* Input */
 

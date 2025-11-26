@@ -183,7 +183,7 @@ export const buttonCn = cn<{
         solid:
           "bg-button-solid-canvas hover:bg-button-solid-canvas-hover text:button-solid-ink hover:text-button-solid-ink-hover",
         transparent:
-          "text-button-label-ink hover:text-button-label-ink-hover hover:bg-button-transparent-canvas-hover border-button-transparent-border hover:border-button-transparent-border-hover",
+          "text-button-transparent-ink hover:text-button-transparent-ink-hover bg-button-transparent-canvas hover:bg-button-transparent-canvas-hover border-button-transparent-border hover:border-button-transparent-border-hover",
         label: "text-button-label-ink hover:text-button-label-ink-hover",
       },
     },
@@ -191,8 +191,9 @@ export const buttonCn = cn<{
       style: {
         solid: "bg-gray-400 text-white hover:bg-gray-500",
         transparent:
-          "text-gray-500 hover:bg-gray-50 border-gray-300 hover:border-gray-400",
-        label: "text-gray-500 hover:text-gray-950",
+          "text-button-transparent-secondary-ink hover:text-button-transparent-secondary-ink-hover bg-button-transparent-secondary-canvas hover:bg-button-transparent-secondary-canvas-hover border-button-transparent-secondary-border hover:border-button-transparent-secondary-border-hover",
+        label:
+          "text-button-secondary-label-ink hover:text-button-secondary-label-ink-hover",
       },
     },
     cta: "bg-blue-700 text-white hover:bg-blue-600",
