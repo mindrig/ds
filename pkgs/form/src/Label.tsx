@@ -94,7 +94,7 @@ export const labelCng = cn<{ size: Size }>().group(($) => ({
   }),
 
   content: $()
-    .base(textCn({ color: "support", role: "label" }))
+    .base(textCn({ color: "support", role: "label", capsize: true }))
     .size("medium", {
       xsmall: "text-xs",
       small: "text-xs",

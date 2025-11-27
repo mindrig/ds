@@ -3,13 +3,14 @@
 import { Icon } from "@wrkspc/icons";
 import iconLightSquareCheck from "@wrkspc/icons/svg/light/square-check.js";
 import iconLightSquare from "@wrkspc/icons/svg/light/square.js";
-import { Color, Size, textCn } from "@wrkspc/theme";
+import { Color, Size } from "@wrkspc/theme";
 import { anyErrors, renderErrors, WithErrorsProps } from "@wrkspc/ui";
 import { cn } from "crab";
 import React, { forwardRef } from "react";
-import { Label, Checkbox as RACheckbox } from "react-aria-components";
-import { Description } from "./Description";
+import { Checkbox as RACheckbox } from "react-aria-components";
 import { FieldCnProps, InputCnProps } from "./classNames";
+import { Description } from "./Description";
+import { Label, labelProps, LabelValue } from "./Label";
 
 export interface CheckboxProps
   extends Omit<React.ComponentProps<typeof RACheckbox>, "value">,
@@ -17,7 +18,7 @@ export interface CheckboxProps
     InputCnProps,
     WithErrorsProps {
   value: boolean;
-  label?: string;
+  label?: LabelValue | undefined;
   description?: string | undefined;
   color?: Color | undefined;
   disabled?: boolean | undefined;
@@ -55,9 +56,10 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             {(label || anyErrors(errors)) && (
               <div>
                 {label && (
-                  <Label className={textCn({ size, color, role: "control" })}>
-                    {label}
-                  </Label>
+                  // <Label className={textCn({ size, color, role: "control" })}>
+                  //   {label}
+                  // </Label>
+                  <Label {...labelProps(label)} size={size} />
                 )}
 
                 {renderErrors({ errors, size }) ||
@@ -74,8 +76,11 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
 );
 
 export const checkboxCn = cn<{ size: Size; disabled: boolean }>()
-  .base("flex items-center gap-2")
-  .size("medium")
+  .base("flex items-center")
+  .size("medium", {
+    small: "gap-1",
+    medium: "gap-2",
+  })
   .disabled(false, {
     true: "opacity-50",
   });

@@ -26,6 +26,7 @@ export const textCn = cn<{
   bold: boolean;
   flow: TextFlow;
   capsize: boolean;
+  truncate: boolean;
 }>()
   .capsize(false, { true: "capsize" })
   .color("main", {
@@ -82,7 +83,7 @@ export const textCn = cn<{
       "font-medium leading-[1.2] text-balance",
       {
         size: {
-          xsmall: "text-sm",
+          xsmall: "text-xs",
           small: "text-sm",
           medium: "text-lg",
           large: "text-xl",
@@ -132,6 +133,9 @@ export const textCn = cn<{
   })
   .flow("normal", {
     textarea: "whitespace-pre-wrap break-words",
+  })
+  .truncate(false, {
+    true: "truncate",
   });
 
 export const descriptionTextCn = cn<{

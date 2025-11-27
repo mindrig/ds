@@ -1,22 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* Canvas (background) */
-
-  --color-canvas: var(--color-gray-100);
-
-  /* Ink (text) */
-
-  /* Primary */
-  --color-ink: var(--color-gray-950);
-  --color-ink-inverse: var(--color-white);
-  /* Support */
-  --color-ink-support: var(--color-gray-600);
-  --color-ink-support-inverse: var(--color-gray-400);
-  /* Detail */
-  --color-ink-detail: var(--color-gray-500);
-  --color-ink-detail-inverse: var(--color-gray-500);
-
   /* Icon */
 
   /* Primary */
@@ -31,11 +15,50 @@
   --color-icon-detail: var(--color-gray-400);
   --color-icon-detail-hover: var(--color-gray-300);
 
-  /*# Sizes */
+  /*# Basics */
 
-  /* Add your sizes here. */
+  /*## Size */
+
+  /* Add your sizes into this section, e.g.:
+
+      --text-base: var(--vscode-font-size);
+  */
+
+  /*## Text */
+
+  /*### Color */
+
+  /***** Primary */
+  --color-ink: var(--color-gray-950);
+  --color-ink-inverse: var(--color-white);
+  /***** Support */
+  --color-ink-support: var(--color-gray-600);
+  --color-ink-support-inverse: var(--color-gray-400);
+  /***** Detail */
+  --color-ink-detail: var(--color-gray-500);
+  --color-ink-detail-inverse: var(--color-gray-500);
+
+  /*## Background */
+
+  --color-canvas: var(--color-gray-100);
+
+  /*## Border */
+
+  /*## Divider */
+
+  --color-divider: var(--color-gray-300);
+
+  /*# Components */
 
   /*## Button */
+
+  /*### Size */
+
+  --radius-button-xsmall: var(--radius-md);
+  --radius-button-small: var(--radius-md);
+  --radius-button-medium: var(--radius-lg);
+  --radius-button-large: var(--radius-lg);
+  --radius-button-xlarge: var(--radius-lg);
 
   /*### Style */
 
@@ -106,4 +129,26 @@
   --color-option-canvas-selected: var(--color-indigo-50);
   --color-option-ink: var(--color-gray-900);
   --color-option-ink-selected: var(--color-indigo-900);
+
+  /*## Tag */
+
+  /*### Color */
+
+  /**** Default */
+  --color-tag-ink: var(--color-gray-200);
+  --color-tag-canvas: var(--color-gray-600);
+
+  /**** Secondary */
+  --color-tag-ink-secondary: var(--color-gray-300);
+  --color-tag-canvas-secondary: var(--color-gray-700);
+
+  /*## Tab */
+
+  --border-tab: 2px;
+  --color-tab-ink: var(--color-gray-700);
+  --color-tab-ink-hover: var(--color-tab-active-ink);
+  --color-tab-border: transparent;
+  /*---- Active */
+  --color-tab-active-ink: var(--color-gray-600);
+  --color-tab-active-border: var(--color-gray-500);
 }

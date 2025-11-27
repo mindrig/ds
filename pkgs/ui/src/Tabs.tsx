@@ -109,7 +109,7 @@ export const tabsCn = cn<{ style: TabsStyle; size: Size }>()
 
 export const tabCn = cn<{ active: boolean; size: Size }>()
   .base(
-    "border-b-2 border-t-2 border-t-transparent font-semibold flex items-center gap-1",
+    "border-y-[length:var(--border-tab)] border-t-transparent font-semibold flex items-center gap-1",
   )
   .size("medium", {
     xsmall: "h-5 py-[1px] px-1 text-xs",
@@ -117,6 +117,6 @@ export const tabCn = cn<{ active: boolean; size: Size }>()
     medium: "h-10 px-6",
   })
   .active(false, {
-    true: "text-gray-700 border-b-gray-500",
-    false: "text-gray-600 border-b-transparent hover:text-gray-800",
+    false: "text-tab-ink hover:text-tab-ink-hover border-b-tab-border",
+    true: "text-tab-active-ink border-b-tab-active-border",
   });

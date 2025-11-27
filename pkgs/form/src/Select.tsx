@@ -2,9 +2,9 @@
 
 import { Icon, IconProp } from "@wrkspc/icons";
 import iconLightCheck from "@wrkspc/icons/svg/light/check.js";
-import iconSolidCaretDown from "@wrkspc/icons/svg/solid/caret-down.js";
+import iconRegularChevronDown from "@wrkspc/icons/svg/regular/chevron-down.js";
 import { ComponentProp, componentPropResolve } from "@wrkspc/props";
-import { Size } from "@wrkspc/theme";
+import { Size, translateSize } from "@wrkspc/theme";
 import { renderErrors, WithErrorsProps } from "@wrkspc/ui";
 import { cn } from "crab";
 import {
@@ -113,7 +113,12 @@ export function Select<Payload extends string | number>(
             )}
           </SelectValue>
 
-          <Icon id={iconSolidCaretDown} color="support" aria-hidden />
+          <Icon
+            id={iconRegularChevronDown}
+            size={translateSize(size, 1)}
+            color="support"
+            aria-hidden
+          />
         </Button>
       ))}
 
@@ -160,7 +165,7 @@ export const selectButtonContentCn = cn<{
   size: Size;
   isPlaceholder: boolean;
 }>()
-  .base("flex items-center whitespace-nowrap")
+  .base("flex items-center whitespace-nowrap truncate")
   .size("medium", {
     xsmall: "gap-1",
     small: "gap-1",

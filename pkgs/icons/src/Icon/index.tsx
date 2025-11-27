@@ -100,11 +100,11 @@ export const iconMaskCn = cn<{
       [{ inverse: true, trigger: true }, "hover:bg-icon-support-inverse-hover"],
     ],
     detail: [
-      [{ inverse: false }, "bg-icon-support"],
-      [{ inverse: false, trigger: true }, "hover:bg-icon-support-hover"],
+      [{ inverse: false }, "bg-icon-detail"],
+      [{ inverse: false, trigger: true }, "hover:bg-icon-detail-hover"],
       // Inverse
-      [{ inverse: true }, "bg-icon-support-inverse"],
-      [{ inverse: true, trigger: true }, "hover:bg-icon-support-inverse-hover"],
+      [{ inverse: true }, "bg-icon-detail-inverse"],
+      [{ inverse: true, trigger: true }, "hover:bg-icon-detail-inverse-hover"],
     ],
     brand: ["bg-lime-500" /* TODO: */],
     danger: ["bg-red-500" /* TODO: */],
@@ -157,13 +157,13 @@ export const iconInlineCn = cn<{
       ],
     ],
     detail: [
-      [{ inverse: false }, "text-icon-support"],
-      [{ inverse: false, trigger: true }, "hover:text-icon-support-hover"],
+      [{ inverse: false }, "text-icon-detail"],
+      [{ inverse: false, trigger: true }, "hover:text-icon-detail-hover"],
       // Inverse
-      [{ inverse: true }, "text-icon-support-inverse"],
+      [{ inverse: true }, "text-icon-detail-inverse"],
       [
         { inverse: true, trigger: true },
-        "hover:text-icon-support-inverse-hover",
+        "hover:text-icon-detail-inverse-hover",
       ],
     ],
     brand: ["text-lime-500" /* TODO: */],

@@ -136,7 +136,7 @@ export const buttonCn = cn<{
   align: ButtonAlign;
 }>()
   .base(
-    "inline-flex items-center justify-center whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 font-sans",
+    "inline-flex items-center justify-center whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 font-sans hover:cursor-pointer",
   )
   .size("medium", {
     xsmall: [
@@ -144,8 +144,8 @@ export const buttonCn = cn<{
       {
         style: {
           // TODO: Add special "default" style
-          solid: "h-5 rounded-md py-[1px] px-1",
-          transparent: "h-5 rounded-md py-[1px] px-1",
+          solid: "h-5 rounded-button-xsmall py-[1px] px-1",
+          transparent: "h-5 rounded-button-xsmall py-[1px] px-1",
         },
       },
     ],
@@ -153,8 +153,8 @@ export const buttonCn = cn<{
       "gap-1",
       {
         style: {
-          solid: "h-7 rounded-md px-2 text-sm",
-          transparent: "h-7 rounded-md px-2 text-sm",
+          solid: "h-7 rounded-button-small px-2 text-sm",
+          transparent: "h-7 rounded-button-small px-2 text-sm",
         },
       },
     ],
@@ -162,8 +162,8 @@ export const buttonCn = cn<{
       "gap-2",
       {
         style: {
-          solid: "h-10 rounded-lg px-6",
-          transparent: "h-10 rounded-lg px-6",
+          solid: "h-10 rounded-button-medium px-6",
+          transparent: "h-10 rounded-button-medium px-6",
         },
       },
     ],
@@ -171,8 +171,8 @@ export const buttonCn = cn<{
       "gap-2",
       {
         style: {
-          solid: "h-11 rounded-lg px-8",
-          transparent: "h-11 rounded-lg px-8",
+          solid: "h-11 rounded-button-large px-8",
+          transparent: "h-11 rounded-button-large px-8",
         },
       },
     ],
@@ -181,7 +181,7 @@ export const buttonCn = cn<{
     primary: {
       style: {
         solid:
-          "bg-button-solid-canvas hover:bg-button-solid-canvas-hover text:button-solid-ink hover:text-button-solid-ink-hover",
+          "bg-button-solid-canvas hover:bg-button-solid-canvas-hover text-button-solid-ink hover:text-button-solid-ink-hover",
         transparent:
           "text-button-transparent-ink hover:text-button-transparent-ink-hover bg-button-transparent-canvas hover:bg-button-transparent-canvas-hover border-button-transparent-border hover:border-button-transparent-border-hover",
         label: "text-button-label-ink hover:text-button-label-ink-hover",

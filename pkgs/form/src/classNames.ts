@@ -12,7 +12,7 @@ export type ControlVariants = {
 export const fieldCn = cn<{
   size: Size;
 }>()
-  .base("flex flex-col")
+  .base("flex flex-col w-full")
   .size("medium", {
     xsmall: "gap-1",
     small: "gap-1",
