@@ -18,5 +18,6 @@ export function Tags(props: PropsWithChildren<TagsProps>) {
 }
 
 const tagsCn = cn<{ size: Size }>().base("flex").size("medium", {
+  xsmall: "gap-1",
   small: "gap-1",
 });
