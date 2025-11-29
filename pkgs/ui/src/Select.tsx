@@ -33,12 +33,13 @@ export type SelectProps<Payload extends string | number | null | undefined> =
   Select.Props<Payload>;
 
 export namespace Select {
-  export interface Option<Payload extends string | number> {
+  export interface Option<Payload extends string | number | null | undefined> {
     label?: string | undefined;
     value: Payload;
   }
 
-  export type Options<Payload extends string | number> = Array<Option<Payload>>;
+  export type Options<Payload extends string | number | null | undefined> =
+    Array<Option<Payload>>;
 
   export type OptionItem<Payload extends string | number> =
     | Option<Payload>

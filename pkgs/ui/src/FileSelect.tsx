@@ -4,7 +4,7 @@ import { textCn } from "@wrkspc/theme";
 import React, { ReactNode, useState } from "react";
 import { FileTrigger } from "react-aria-components";
 import { Description } from "./Description";
-import { Label, labelA11yProps, labelProps } from "./Label";
+import { Label, labelA11yAttr, labelProps } from "./Label";
 import { fieldCn, FieldCnProps, InputCnProps } from "./classNames";
 import { anyErrors, Button, Errors, WithErrorsProps, Wrap } from "./index.js";
 
@@ -64,8 +64,7 @@ export function FileSelect(props: FileSelectProps) {
               <div className="relative">
                 <input
                   name={name}
-                  {...labelA11yProps(label)}
-                  // aria-label={label}
+                  aria-label={labelA11yAttr(label)}
                   type="file"
                   ref={ref}
                   className="absolute left-0 top-0 right-0 bottom-0 opacity-0"

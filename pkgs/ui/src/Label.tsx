@@ -90,14 +90,17 @@ export function labelA11yProps(
   propsOverrides?: Partial<Label.Props>,
 ) {
   return {
-    "aria-label":
-      typeof prop == "object"
-        ? "a11y" in prop
-          ? prop.a11y
-          : prop.label
-        : prop,
+    "aria-label": labelA11yAttr(prop),
     ...propsOverrides,
   };
+}
+
+export function labelA11yAttr(prop: Label.Prop) {
+  return typeof prop == "object"
+    ? "a11y" in prop
+      ? prop.a11y
+      : prop.label
+    : prop;
 }
 
 export const labelCng = cn().group(($) => ({

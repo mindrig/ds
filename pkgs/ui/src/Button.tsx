@@ -10,8 +10,9 @@ import { Button as ButtonComponent, Link } from "react-aria-components";
 type Stringifable = string | number | boolean;
 
 export interface ButtonBaseProps {
-  tag?: Stringifable;
+  tag?: Stringifable | undefined;
   icon?: IconId | IconBaseProps;
+  title?: string | undefined;
 }
 
 export interface ButtonLinkProps
