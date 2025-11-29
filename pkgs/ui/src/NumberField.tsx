@@ -1,6 +1,5 @@
 "use client";
 
-import { renderErrors, WithErrorsProps } from "@wrkspc/ui";
 import React, { forwardRef } from "react";
 import {
   Input as RAInput,
@@ -9,6 +8,7 @@ import {
 import { Description } from "./Description";
 import { Label, labelProps, LabelValue } from "./Label";
 import { fieldCn, inputCn, InputCnProps } from "./classNames";
+import { renderErrors, WithErrorsProps } from "./index.js";
 
 export interface NumberFieldProps
   extends React.ComponentProps<typeof RANumberField>,

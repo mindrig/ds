@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@wrkspc/ui";
 import { cn } from "crab";
 import React, { forwardRef } from "react";
 import { Form as RAForm } from "react-aria-components";
 import { useFormStatus } from "react-dom";
+import { Button } from "./index.js";
 
 export interface FormProps
   extends React.PropsWithChildren<

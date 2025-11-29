@@ -4,11 +4,11 @@ import { Icon } from "@wrkspc/icons";
 import iconRegularToggleLargeOff from "@wrkspc/icons/svg/regular/toggle-large-off.js";
 import iconRegularToggleLargeOn from "@wrkspc/icons/svg/regular/toggle-large-on.js";
 import { Size, translateSize } from "@wrkspc/theme";
-import { anyErrors, Errors, WithErrorsProps } from "@wrkspc/ui";
 import { cn } from "crab";
 import React from "react";
 import { Switch as RASwitch } from "react-aria-components";
 import { Description } from "./Description";
+import { anyErrors, Errors, WithErrorsProps } from "./index.js";
 import { Label } from "./Label";
 
 export interface SwitchProps

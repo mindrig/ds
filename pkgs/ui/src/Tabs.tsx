@@ -1,40 +1,57 @@
 "use client";
 
 import { Icon, IconId } from "@wrkspc/icons";
-import { Size, textCn, translateSize } from "@wrkspc/theme";
+import { Size, translateSize } from "@wrkspc/theme";
 import { cn } from "crab";
 import React, { useState } from "react";
 import { Button } from "react-aria-components";
+import { Label, labelProps } from "./Label.js";
 
-export interface TabItem<Id extends string | undefined, Payload> {
-  id: Id;
-  icon?: IconId;
-  label: React.ReactNode;
-  content?: React.ReactNode;
-  payload?: Payload;
-  isActive?: (
-    id: Id | undefined,
-    payload: Payload | undefined,
-  ) => true | false | undefined | null | "";
-  extra?: React.ReactNode | undefined;
-}
-
-export type TabsItems<Id extends string | undefined, Payload> = Array<
-  TabItem<Id, Payload> | false | undefined | null | ""
+/** @deprecated */
+export type TabItem<Id extends string | undefined, Payload> = Tabs.Item<
+  Id,
+  Payload
 >;
 
-export interface TabsProps<Id extends string | undefined, Payload>
-  extends cn.Props<typeof tabsCn> {
-  label?: React.ReactNode;
-  items: TabsItems<Id, Payload>;
-  initial?: Id;
-  size?: Size;
-  onChange?: (id: Id, payload: Payload | undefined) => void;
-  value?: Id;
+/** @deprecated */
+export type TabsProps<Id extends string | undefined, Payload> = Tabs.Props<
+  Id,
+  Payload
+>;
+
+export namespace Tabs {
+  export interface Item<Id extends string | undefined, Payload> {
+    id: Id;
+    icon?: IconId;
+    label: React.ReactNode;
+    content?: React.ReactNode;
+    payload?: Payload;
+    isActive?: (
+      id: Id | undefined,
+      payload: Payload | undefined,
+    ) => true | false | undefined | null | "";
+    extra?: React.ReactNode | undefined;
+  }
+
+  export type Items<Id extends string | undefined, Payload> = Array<
+    Item<Id, Payload> | false | undefined | null | ""
+  >;
+
+  export interface Props<Id extends string | undefined, Payload>
+    extends cn.Props<typeof tabsCn> {
+    label?: Label.Prop;
+    items: Items<Id, Payload>;
+    initial?: Id;
+    size?: Size;
+    onChange?: (id: Id, payload: Payload | undefined) => void;
+    value?: Id;
+  }
+
+  export type Style = "default" | "inline";
 }
 
 export function Tabs<Id extends string, Payload = undefined>(
-  props: TabsProps<Id, Payload>,
+  props: Tabs.Props<Id, Payload>,
 ) {
   const { label, items, initial, size, onChange } = props;
   const localState = useState<Id | undefined>(
@@ -49,9 +66,19 @@ export function Tabs<Id extends string, Payload = undefined>(
     <div>
       <div className={tabsCn(props)}>
         {label && (
-          <div className={textCn({ size, role: "label", color: "detail" })}>
-            <span>{label}</span>
-          </div>
+          <Label {...labelProps(label, { size })} />
+
+          // <div
+          //   className={textCn({
+          //     size,
+          //     role: "label",
+          //     color: "detail",
+          //     className: "flex items-center",
+          //   })}
+          // >
+          //   {icon && <Icon id={icon} size={translateSize(size, -1)} />}
+          //   <span>{label}</span>
+          // </div>
         )}
 
         <div className="flex">
@@ -93,9 +120,7 @@ export function Tabs<Id extends string, Payload = undefined>(
   );
 }
 
-export type TabsStyle = "default" | "inline";
-
-export const tabsCn = cn<{ style: TabsStyle; size: Size }>()
+export const tabsCn = cn<{ style: Tabs.Style; size: Size }>()
   .base("flex items-center gap-2")
   .style("default", {
     default: "border-b border-gray-200",

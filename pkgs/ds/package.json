@@ -10,7 +10,6 @@
     "types:watch": "script_path=\"$(pnpm root -w)/../scripts/pkg-types.sh\"; if [ -f \"$script_path\" ]; then \"$script_path\" watch; else tsc --build --watch; fi"
   },
   "dependencies": {
-    "@wrkspc/form": "workspace:*",
     "@wrkspc/icons": "workspace:*",
     "@wrkspc/modal": "workspace:*",
     "@wrkspc/props": "workspace:*",

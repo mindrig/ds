@@ -1,12 +1,12 @@
 "use client";
 
 import { textCn } from "@wrkspc/theme";
-import { anyErrors, Button, Errors, WithErrorsProps, Wrap } from "@wrkspc/ui";
 import React, { ReactNode, useState } from "react";
 import { FileTrigger } from "react-aria-components";
 import { Description } from "./Description";
-import { Label, labelProps, LabelValue } from "./Label";
+import { Label, labelA11yProps, labelProps } from "./Label";
 import { fieldCn, FieldCnProps, InputCnProps } from "./classNames";
+import { anyErrors, Button, Errors, WithErrorsProps, Wrap } from "./index.js";
 
 export interface FileSelectProps
   extends React.RefAttributes<HTMLInputElement>,
@@ -18,7 +18,7 @@ export interface FileSelectProps
     InputCnProps,
     WithErrorsProps {
   name?: string | undefined;
-  label?: LabelValue | undefined;
+  label: Label.Prop;
   action?: ReactNode | undefined;
   description?: string | undefined;
   isDisabled?: boolean;
@@ -64,6 +64,8 @@ export function FileSelect(props: FileSelectProps) {
               <div className="relative">
                 <input
                   name={name}
+                  {...labelA11yProps(label)}
+                  // aria-label={label}
                   type="file"
                   ref={ref}
                   className="absolute left-0 top-0 right-0 bottom-0 opacity-0"

@@ -3,10 +3,5 @@
   "compilerOptions": {
     "lib": ["ESNext", "DOM"]
   },
-  "references": [
-    { "path": "../icons/" },
-    { "path": "../props/" },
-    { "path": "../theme/" },
-    { "path": "../ui/" }
-  ]
+  "references": [{ "path": "../ui/" }]
 }

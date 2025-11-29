@@ -175,11 +175,13 @@ export const iconInlineCn = cn<{
 
 export const iconBaseCn = cn<{
   size: IconSize;
-}>().size("medium", {
-  xsmall: "size-3",
-  small: "size-4",
-  medium: "size-5",
-  large: "size-6",
-  xlarge: "size-9",
-  fill: "w-full aspect-square",
-});
+}>()
+  .base("inline-flex items-center")
+  .size("medium", {
+    xsmall: "size-3",
+    small: "size-4",
+    medium: "size-5",
+    large: "size-6",
+    xlarge: "size-9",
+    fill: "w-full aspect-square",
+  });

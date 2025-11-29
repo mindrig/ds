@@ -5,7 +5,6 @@ import iconLightCheck from "@wrkspc/icons/svg/light/check.js";
 import iconRegularChevronDown from "@wrkspc/icons/svg/regular/chevron-down.js";
 import { ComponentProp, componentPropResolve } from "@wrkspc/props";
 import { Size, translateSize } from "@wrkspc/theme";
-import { renderErrors, WithErrorsProps } from "@wrkspc/ui";
 import { cn } from "crab";
 import {
   Button,
@@ -19,6 +18,7 @@ import {
 import { Description } from "./Description";
 import { Label, labelA11yProps, labelProps, LabelValue } from "./Label";
 import { fieldCn, FieldCnProps, inputCn, InputCnProps } from "./classNames";
+import { renderErrors, WithErrorsProps } from "./index.js";
 
 export type SelectOption<Payload extends string | number> =
   Select.Option<Payload>;

@@ -1,7 +1,6 @@
 "use client";
 
 import { Icon, IconProp } from "@wrkspc/icons";
-import { anyErrors, Errors, WithErrorsProps, Wrap } from "@wrkspc/ui";
 import React from "react";
 import {
   Input as RAInput,
@@ -11,6 +10,7 @@ import {
 import { Description } from "./Description";
 import { Label, labelA11yProps, labelProps, LabelValue } from "./Label";
 import { fieldCn, inputCn, InputCnProps, inputIconCn } from "./classNames";
+import { anyErrors, Errors, WithErrorsProps, Wrap } from "./index.js";
 
 export type InputProps<Value extends string | number | null | undefined> =
   Input.Props<Value>;

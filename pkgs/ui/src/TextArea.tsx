@@ -1,12 +1,12 @@
 "use client";
 
 import { Size } from "@wrkspc/theme";
-import { renderErrors, WithErrorsProps } from "@wrkspc/ui";
 import { cn } from "crab";
 import React, { useCallback, useEffect, useRef } from "react";
 import { TextArea as RATextArea, TextField } from "react-aria-components";
 import { fieldCn, FieldCnProps, InputCnProps } from "./classNames";
 import { Description } from "./Description";
+import { renderErrors, WithErrorsProps } from "./index.js";
 import { Label, labelA11yProps, labelProps, LabelValue } from "./Label";
 
 export interface TextAreaProps

@@ -4,12 +4,12 @@ import { Icon } from "@wrkspc/icons";
 import iconLightSquareCheck from "@wrkspc/icons/svg/light/square-check.js";
 import iconLightSquare from "@wrkspc/icons/svg/light/square.js";
 import { Color, Size } from "@wrkspc/theme";
-import { anyErrors, renderErrors, WithErrorsProps } from "@wrkspc/ui";
 import { cn } from "crab";
 import React, { forwardRef } from "react";
 import { Checkbox as RACheckbox } from "react-aria-components";
 import { FieldCnProps, InputCnProps } from "./classNames";
 import { Description } from "./Description";
+import { anyErrors, renderErrors, WithErrorsProps } from "./index.js";
 import { Label, labelProps, LabelValue } from "./Label";
 
 export interface CheckboxProps
