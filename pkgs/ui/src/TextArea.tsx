@@ -66,7 +66,7 @@ export const textAreaCn = cn<{ size: Size; mono: boolean }>()
     "w-full placeholder:text-input-placeholder border border-input-border bg-input-canvas ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 shadow-input",
   )
   .size("medium", {
-    xsmall: "min-h-6 rounded-input-sm p-1 text-sm",
+    xsmall: "min-h-6 rounded-input-sm p-1 text-xs",
     small: "min-h-7 rounded-input-sm px-2 py-1 text-sm",
     medium: "min-h-15 rounded-input p-3 text-sm",
     large: "min-h-11 rounded-input px-8",
