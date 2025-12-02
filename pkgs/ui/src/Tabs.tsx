@@ -23,7 +23,7 @@ export namespace Tabs {
   export interface Item<Id extends string | undefined, Payload> {
     id: Id;
     icon?: IconId;
-    label: React.ReactNode;
+    label?: React.ReactNode;
     content?: React.ReactNode;
     payload?: Payload;
     isActive?: (
@@ -107,7 +107,7 @@ export function Tabs<Id extends string, Payload = undefined>(
                       color="support"
                     />
                   )}
-                  <span>{item.label}</span>
+                  {item.label && <span>{item.label}</span>}
                   {item.extra}
                 </Button>
               ),
