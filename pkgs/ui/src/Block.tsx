@@ -5,13 +5,13 @@ import {
   resolvePadding,
   spacingCn,
 } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import React from "react";
 
 export namespace Block {
   export interface Props
-    extends cn.Props<typeof blockCn>,
-      cn.Props<typeof spacingCn> {
+    extends cnss.Props<typeof blockCn>,
+      cnss.Props<typeof spacingCn> {
     pad?: Padding.Prop | true | undefined;
     border?: Border | undefined;
   }
@@ -24,7 +24,7 @@ export function Block(props: React.PropsWithChildren<Block.Props>) {
   const pad = props.pad === true ? size : props.pad;
 
   debugger;
-  const cns = cn(
+  const cns = cnss(
     pad && paddingCn(resolvePadding(pad)),
     spacingCn(props),
     blockCn(props),
@@ -32,7 +32,7 @@ export function Block(props: React.PropsWithChildren<Block.Props>) {
 
   return (
     <div
-      className={cn(
+      className={cnss(
         pad && paddingCn(resolvePadding(pad)),
         spacingCn(props),
         blockCn(props),
@@ -43,7 +43,7 @@ export function Block(props: React.PropsWithChildren<Block.Props>) {
   );
 }
 
-export const blockCn = cn<{
+export const blockCn = cnss<{
   divided: boolean;
   dir: Dir;
   border: Block.Border;

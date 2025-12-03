@@ -1,6 +1,6 @@
 import iconRegularAngleDown from "@wrkspc/icons/svg/regular/angle-down.js";
 import iconRegularAngleUp from "@wrkspc/icons/svg/regular/angle-up.js";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import { Button } from "./Button";
 
 export interface ExpandButtonProps {
@@ -16,7 +16,7 @@ export function ExpandButton(props: ExpandButtonProps) {
 
   return (
     <div
-      className={cn(
+      className={cnss(
         "pointer-events-none flex justify-center font-sans",
         "absolute left-0 bottom-2 right-0",
       )}

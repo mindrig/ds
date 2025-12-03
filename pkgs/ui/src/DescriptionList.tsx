@@ -1,6 +1,6 @@
 import { Icon } from "@wrkspc/icons";
 import { minSize, Size, textCn, translateSize } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import { ReactNode } from "react";
 import { Label } from "./Label";
 
@@ -16,7 +16,7 @@ export type DescriptionListItems = Array<
 >;
 
 export interface DescriptionListProps
-  extends cn.Props<typeof descriptionListItemCn> {
+  extends cnss.Props<typeof descriptionListItemCn> {
   items: DescriptionListItems;
 }
 
@@ -52,7 +52,7 @@ export function DescriptionList(props: DescriptionListProps) {
   );
 }
 
-export const descriptionListItemCn = cn<{ size: Size }>()
+export const descriptionListItemCn = cnss<{ size: Size }>()
   .base("grid grid-cols-1 ")
   .size("medium", {
     xsmall: "gap-1 px-1 py-1 grid-cols-[minmax(0,_1fr)_minmax(0,_5fr)]",

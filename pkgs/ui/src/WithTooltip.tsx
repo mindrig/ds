@@ -1,13 +1,13 @@
 "use client";
 
 import { Size } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import { ComponentProps, PropsWithChildren, ReactNode } from "react";
 import { Button, Tooltip, TooltipTrigger } from "react-aria-components";
 
 export interface WithTooltipProps
   extends ComponentProps<typeof TooltipTrigger>,
-    cn.Props<typeof tooltipCn> {
+    cnss.Props<typeof tooltipCn> {
   tooltip: ReactNode | undefined;
   className?: string | undefined;
   onPress?: () => void;
@@ -28,7 +28,7 @@ export function WithTooltip(props: PropsWithChildren<WithTooltipProps>) {
   );
 }
 
-export const tooltipCn = cn<{ size: Size }>()
+export const tooltipCn = cnss<{ size: Size }>()
   .base("shadow-md bg-white border rounded-lg p-2")
   .size("medium", {
     small: "text-xs max-w-xs",

@@ -2,7 +2,7 @@
 
 import { Icon } from "@wrkspc/icons";
 import { Size, textCn, translateSize } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import React from "react";
 import { Label as RALabel } from "react-aria-components";
 
@@ -36,7 +36,7 @@ export namespace Label {
     actions?: React.ReactNode;
   }
 
-  export interface Props extends PropsBase, cn.Props<typeof labelCng> {
+  export interface Props extends PropsBase, cnss.Props<typeof labelCng> {
     icon?: Icon.Prop | undefined;
   }
 }
@@ -50,7 +50,7 @@ export function Label(props: React.PropsWithChildren<LabelProps>) {
 
   return (
     <div className="flex justify-between items-center">
-      <RALabel className={cn(cns.block, cns.label)}>
+      <RALabel className={cnss(cns.block, cns.label)}>
         {icon && <Icon id={icon} size={translateSize(size, -1)} />}
 
         <span className={cns.content}>{children}</span>
@@ -103,7 +103,7 @@ export function labelA11yAttr(prop: Label.Prop) {
     : prop;
 }
 
-export const labelCng = cn().group(($) => ({
+export const labelCng = cnss().group(($) => ({
   block: $<{ size: Size }>().base("flex items-center").size("medium", {
     xsmall: "gap-1",
     small: "gap-1",

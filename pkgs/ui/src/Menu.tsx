@@ -2,7 +2,7 @@
 
 import { Icon, IconId, IconProps } from "@wrkspc/icons";
 import { Size, translateSize } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import { PropsWithChildren } from "react";
 import {
   Button,
@@ -69,7 +69,7 @@ export function Menu(props: PropsWithChildren<MenuProps>) {
   );
 }
 
-export const menuCn = cn<{ size: Size }>().group(($) => ({
+export const menuCn = cnss<{ size: Size }>().group(($) => ({
   button: $<{ mode: "button" | "icon" }>()
     .size("medium", {
       xsmall: [{ mode: "icon" }, "h-3 w-3"],

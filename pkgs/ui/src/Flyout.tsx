@@ -2,12 +2,12 @@
 
 import { ComponentProp, componentPropResolve } from "@wrkspc/props";
 import { Size } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import React, { useRef } from "react";
 import { Dialog, DialogTrigger, Popover } from "react-aria-components";
 import { Button, ButtonProps } from "./Button.js";
 
-export interface FlyoutProps extends cn.Props<typeof flyoutCn> {
+export interface FlyoutProps extends cnss.Props<typeof flyoutCn> {
   button?: ComponentProp<ButtonProps> | undefined;
   inline?: boolean | undefined;
 }
@@ -40,7 +40,7 @@ export function Flyout(props: React.PropsWithChildren<FlyoutProps>) {
   );
 }
 
-export const flyoutCn = cn<{ size: Size; bare: boolean }>()
+export const flyoutCn = cnss<{ size: Size; bare: boolean }>()
   .size("medium", {
     xsmall: "md:min-w-32",
     small: "md:min-w-48",

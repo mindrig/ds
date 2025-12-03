@@ -1,5 +1,5 @@
 import { Size } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 
 export type ControlColor = "primary" | "secondary";
 
@@ -9,7 +9,7 @@ export type ControlVariants = {
   color: ControlColor;
 };
 
-export const fieldCn = cn<{
+export const fieldCn = cnss<{
   size: Size;
 }>()
   .base("flex flex-col w-full")
@@ -20,9 +20,9 @@ export const fieldCn = cn<{
     large: "gap-3",
   });
 
-export type FieldCnProps = cn.Props<typeof fieldCn>;
+export type FieldCnProps = cnss.Props<typeof fieldCn>;
 
-export const inputIconCn = cn<{
+export const inputIconCn = cnss<{
   size: Size;
 }>()
   .base("absolute top-0 bottom-0 flex items-center pointer-events-none")
@@ -33,7 +33,7 @@ export const inputIconCn = cn<{
     large: "left-2",
   });
 
-export const inputCn = cn<{
+export const inputCn = cnss<{
   size: Size;
   prefix: boolean;
   mono: boolean;
@@ -79,4 +79,4 @@ export const inputCn = cn<{
 
 export type InputContent = "text" | "variable";
 
-export type InputCnProps = cn.Props<typeof inputCn>;
+export type InputCnProps = cnss.Props<typeof inputCn>;

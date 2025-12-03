@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "crab";
+import { cnss } from "cnss";
 import React, { forwardRef } from "react";
 import { Form as RAForm } from "react-aria-components";
 import { useFormStatus } from "react-dom";
@@ -25,7 +25,9 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
 
     return (
       <RAForm action={action as any} {...restProps}>
-        <div className={cn("space-y-9", props.compact ? "p-9" : "px-9 py-14")}>
+        <div
+          className={cnss("space-y-9", props.compact ? "p-9" : "px-9 py-14")}
+        >
           {props.children}
 
           {error && (

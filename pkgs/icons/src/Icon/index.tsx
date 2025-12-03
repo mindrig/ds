@@ -1,5 +1,5 @@
 import { type Size } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import { type HTMLProps } from "react";
 import { type IconId } from "..";
 
@@ -12,14 +12,14 @@ export type IconProp = Icon.Prop;
 export namespace Icon {
   export interface Props
     extends Omit<HTMLProps<HTMLDivElement>, "id" | "color" | "size">,
-      cn.Props<typeof iconBaseCn>,
-      cn.Props<typeof iconMaskCn> {
+      cnss.Props<typeof iconBaseCn>,
+      cnss.Props<typeof iconMaskCn> {
     id: Prop;
   }
 
   export interface PropsBase
-    extends cn.Props<typeof iconBaseCn>,
-      cn.Props<typeof iconMaskCn> {
+    extends cnss.Props<typeof iconBaseCn>,
+      cnss.Props<typeof iconMaskCn> {
     id: IconId;
     className?: string | undefined;
   }
@@ -46,7 +46,7 @@ export function Icon(props: IconProps) {
 
   return (
     <div
-      className={cn(iconBaseCn(cnProps), iconMaskCn(cnProps))}
+      className={cnss(iconBaseCn(cnProps), iconMaskCn(cnProps))}
       style={{
         // TODO: Migrate Mind Control to the new approach. Here's the previous URL:
         // mask: `url(https://assets.mindcontrol.studio/icons/${id}) no-repeat center / contain`,
@@ -69,7 +69,7 @@ export type IconColor =
   | "success"
   | "current";
 
-export const iconMaskCn = cn<{
+export const iconMaskCn = cnss<{
   color: IconColor;
   inverse: boolean;
   trigger: boolean;
@@ -123,7 +123,7 @@ export const iconMaskCn = cn<{
   .trigger(false)
   .inverse(false);
 
-export const iconInlineCn = cn<{
+export const iconInlineCn = cnss<{
   color: IconColor;
   inverse: boolean;
   trigger: boolean;
@@ -173,7 +173,7 @@ export const iconInlineCn = cn<{
   .trigger(false)
   .inverse(false);
 
-export const iconBaseCn = cn<{
+export const iconBaseCn = cnss<{
   size: IconSize;
 }>()
   .base("inline-flex items-center")

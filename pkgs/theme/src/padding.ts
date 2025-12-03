@@ -1,5 +1,5 @@
 import { never } from "alwaysly";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import { Size } from "./props";
 
 export namespace Padding {
@@ -90,7 +90,7 @@ export function resolvePadding(
   }
 }
 
-export const paddingCn = cn<{
+export const paddingCn = cnss<{
   x: Padding.PropSize;
   y: Padding.PropSize;
   top: Padding.PropSize;

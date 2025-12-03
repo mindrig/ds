@@ -4,12 +4,12 @@ import { Icon } from "@wrkspc/icons";
 import iconRegularCircleDot from "@wrkspc/icons/svg/regular/circle-dot.js";
 import iconRegularCircle from "@wrkspc/icons/svg/regular/circle.js";
 import { Size, textCn } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import React, { forwardRef } from "react";
 import { Label, Radio as RARadio } from "react-aria-components";
 
 export interface RadioProps
-  extends cn.Props<typeof radioCn>,
+  extends cnss.Props<typeof radioCn>,
     Omit<React.ComponentProps<typeof RARadio>, "isDisabled"> {
   label?: string | undefined;
   value: string;
@@ -51,6 +51,6 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
   },
 );
 
-export const radioCn = cn<{ size: Size }>()
+export const radioCn = cnss<{ size: Size }>()
   .base("flex items-center gap-2")
   .size("medium");

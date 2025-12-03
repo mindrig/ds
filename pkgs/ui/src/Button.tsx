@@ -2,7 +2,7 @@
 
 import { Icon, type IconBaseProps, type IconId } from "@wrkspc/icons";
 import { type Size, textCn, translateSize } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import React, { type PropsWithChildren } from "react";
 import { Button as ButtonComponent, Link } from "react-aria-components";
 
@@ -18,14 +18,14 @@ export interface ButtonBaseProps {
 export interface ButtonLinkProps
   extends ButtonBaseProps,
     Omit<React.ComponentProps<typeof Link>, "children" | "style" | "href">,
-    cn.Props<typeof buttonCn> {
+    cnss.Props<typeof buttonCn> {
   href: string | undefined;
 }
 
 export interface ButtonProps
   extends ButtonBaseProps,
     Omit<React.ComponentProps<typeof ButtonComponent>, "style" | "slot">,
-    cn.Props<typeof buttonCn> {
+    cnss.Props<typeof buttonCn> {
   slot?: boolean | string | null;
 }
 
@@ -130,7 +130,7 @@ export type ButtonStyle = "transparent" | "label" | "solid";
 
 export type ButtonAlign = "auto" | "start";
 
-export const buttonCn = cn<{
+export const buttonCn = cnss<{
   color: ButtonColor;
   size: Size;
   style: ButtonStyle;

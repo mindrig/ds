@@ -1,4 +1,4 @@
-import { cn } from "crab";
+import { cnss } from "cnss";
 import { Dir, Size } from "./props";
 
 export namespace Spacing {
@@ -13,7 +13,7 @@ export namespace Spacing {
     | "around";
 }
 
-export const spacingCn = cn<{
+export const spacingCn = cnss<{
   dir: Dir;
   size: Size;
   align: Spacing.Align;

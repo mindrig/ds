@@ -1,12 +1,12 @@
 "use client";
 
 import { Size } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import React, { PropsWithChildren } from "react";
 
 export interface TagsProps
   extends Omit<React.HTMLProps<HTMLDivElement>, "color" | "size">,
-    cn.Props<typeof tagsCn> {}
+    cnss.Props<typeof tagsCn> {}
 
 export function Tags(props: PropsWithChildren<TagsProps>) {
   const { size, className, ...wrapperProps } = props;
@@ -17,7 +17,7 @@ export function Tags(props: PropsWithChildren<TagsProps>) {
   );
 }
 
-const tagsCn = cn<{ size: Size }>().base("flex").size("medium", {
+const tagsCn = cnss<{ size: Size }>().base("flex").size("medium", {
   xsmall: "gap-1",
   small: "gap-1",
 });

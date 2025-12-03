@@ -2,14 +2,14 @@
 
 import { Icon } from "@wrkspc/icons";
 import iconRegularXmark from "@wrkspc/icons/svg/regular/xmark.js";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import { useContext } from "react";
 import { ModalContext } from "./ModalContext";
 
 /**
  * The {@link ModalLayout} props.
  */
-export interface ModalLayoutProps extends cn.Props<typeof modalLayoutCn> {
+export interface ModalLayoutProps extends cnss.Props<typeof modalLayoutCn> {
   /** If to show close button */
   close?: boolean;
 }
@@ -28,7 +28,7 @@ export function ModalLayout(props: React.PropsWithChildren<ModalLayoutProps>) {
   );
 }
 
-export const modalLayoutCn = cn<{
+export const modalLayoutCn = cnss<{
   size: "medium" | "small" | "xsmall" | "large";
   expanded: boolean;
   color: "default" | "secondary" | "background";
@@ -54,7 +54,7 @@ export const modalLayoutCn = cn<{
 /**
  * The {@link ModalHeader} props.
  */
-export interface ModalHeaderProps extends cn.Props<typeof modalHeaderCn> {}
+export interface ModalHeaderProps extends cnss.Props<typeof modalHeaderCn> {}
 
 /**
  * The modal header component.
@@ -89,7 +89,7 @@ export function ModalClose() {
   );
 }
 
-export const modalHeaderCn = cn<{
+export const modalHeaderCn = cnss<{
   sticky: boolean;
   style: "bordered" | "gradient";
 }>()

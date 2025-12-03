@@ -1,4 +1,4 @@
-import { cn } from "crab";
+import { cnss } from "cnss";
 import type { Color, Size } from "./props";
 
 export type TextRole =
@@ -12,9 +12,9 @@ export type TextRole =
 export type TextFlow = "normal" | "textarea";
 
 export const bodyCn = (className?: string) =>
-  cn("text-ink font-sans font-normal leading-normal", className);
+  cnss("text-ink font-sans font-normal leading-normal", className);
 
-export const textCn = cn<{
+export const textCn = cnss<{
   color: Color;
   size: Size;
   role: TextRole;
@@ -146,7 +146,7 @@ export const textCn = cn<{
     true: "truncate",
   });
 
-export const descriptionTextCn = cn<{
+export const descriptionTextCn = cnss<{
   size: Size;
 }>()
   .base(textCn({ color: "support" }))

@@ -1,7 +1,7 @@
 "use client";
 
 import { Size } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import React, { useCallback, useEffect, useRef } from "react";
 import { TextArea as RATextArea, TextField } from "react-aria-components";
 import { fieldCn, FieldCnProps, InputCnProps } from "./classNames";
@@ -61,7 +61,7 @@ export function TextArea(props: TextAreaProps) {
   );
 }
 
-export const textAreaCn = cn<{ size: Size; mono: boolean }>()
+export const textAreaCn = cnss<{ size: Size; mono: boolean }>()
   .base(
     "w-full placeholder:text-input-placeholder border border-input-border bg-input-canvas ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 shadow-input",
   )

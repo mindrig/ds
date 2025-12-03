@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "crab";
+import { cnss } from "cnss";
 import { ReactNode } from "react";
 import {
   Cell,
@@ -54,7 +54,7 @@ export function Table(props: TableProps) {
                 key={index}
                 id={obj.id || ""}
                 isRowHeader={rowHeaderIndex === index}
-                className={cn(
+                className={cnss(
                   "py-2 px-4 text-left font-semibold text-gray-600",
                   obj?.align === "right" && "text-right",
                 )}
@@ -84,7 +84,9 @@ export function Table(props: TableProps) {
             <Row
               key={index}
               href={rowObj?.href || ""}
-              className={cn(rowObj?.href && "hover:bg-gray-100 cursor-pointer")}
+              className={cnss(
+                rowObj?.href && "hover:bg-gray-100 cursor-pointer",
+              )}
             >
               {cells.map((cell, index) => {
                 const [headerObj] = normalize(props.header?.[index]);
@@ -93,7 +95,7 @@ export function Table(props: TableProps) {
                 return (
                   <Cell
                     key={index}
-                    className={cn(
+                    className={cnss(
                       "py-2 px-4 text-left align-middle",
                       headerObj?.align === "right" && "text-right",
                     )}

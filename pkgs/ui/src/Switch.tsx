@@ -4,7 +4,7 @@ import { Icon } from "@wrkspc/icons";
 import iconRegularToggleLargeOff from "@wrkspc/icons/svg/regular/toggle-large-off.js";
 import iconRegularToggleLargeOn from "@wrkspc/icons/svg/regular/toggle-large-on.js";
 import { Size, translateSize } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import React from "react";
 import { Switch as RASwitch } from "react-aria-components";
 import { Description } from "./Description";
@@ -60,7 +60,7 @@ export function Switch(props: SwitchProps) {
   );
 }
 
-export const switchCn = cn<{ size: Size }>().group(($) => ({
+export const switchCn = cnss<{ size: Size }>().group(($) => ({
   wrapper: $().base("flex flex-col").size("medium", {
     xsmall: "gap-1",
     small: "gap-2",

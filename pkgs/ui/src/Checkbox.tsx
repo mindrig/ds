@@ -4,7 +4,7 @@ import { Icon } from "@wrkspc/icons";
 import iconLightSquareCheck from "@wrkspc/icons/svg/light/square-check.js";
 import iconLightSquare from "@wrkspc/icons/svg/light/square.js";
 import { Color, Size } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import React, { forwardRef } from "react";
 import { Checkbox as RACheckbox } from "react-aria-components";
 import { FieldCnProps, InputCnProps } from "./classNames";
@@ -75,7 +75,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
   },
 );
 
-export const checkboxCn = cn<{ size: Size; disabled: boolean }>()
+export const checkboxCn = cnss<{ size: Size; disabled: boolean }>()
   .base("flex items-center")
   .size("medium", {
     small: "gap-1",

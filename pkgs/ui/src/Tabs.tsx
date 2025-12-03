@@ -3,7 +3,7 @@
 import { Icon, IconId } from "@wrkspc/icons";
 import iconRegularTimes from "@wrkspc/icons/svg/regular/times.js";
 import { Size, translateSize } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import React, { useState } from "react";
 import { Button as RAButton } from "react-aria-components";
 import { $ } from "tdollar";
@@ -41,7 +41,7 @@ export namespace Tabs {
   >;
 
   export interface Props<Id extends string | undefined | null, Payload>
-    extends cn.Props<typeof tabsCn> {
+    extends cnss.Props<typeof tabsCn> {
     label?: Label.Prop | undefined;
     items: Items<Id, Payload>;
     initial?: Id | undefined;
@@ -138,7 +138,7 @@ export function Tabs<Id extends string | undefined | null, Payload = undefined>(
   );
 }
 
-export const tabsCng = cn().group(($) => ({
+export const tabsCng = cnss().group(($) => ({
   wrapper: $<{ style: Tabs.Style }>()
     .base("flex justify-between gap-2")
     .style("default", {
@@ -157,7 +157,7 @@ export const tabsCng = cn().group(($) => ({
     }),
 }));
 
-export const tabsCn = cn<{
+export const tabsCn = cnss<{
   style: Tabs.Style;
   size: Size;
 }>()
@@ -172,7 +172,7 @@ export const tabsCn = cn<{
     medium: "h-10",
   });
 
-export const tabCn = cn<{ active: boolean; size: Size }>()
+export const tabCn = cnss<{ active: boolean; size: Size }>()
   .base(
     "border-y-[length:var(--border-tab)] border-t-transparent font-semibold flex items-center gap-1",
   )

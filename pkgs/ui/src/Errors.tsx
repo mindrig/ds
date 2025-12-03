@@ -1,9 +1,9 @@
 import { Size } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import { Field } from "enso";
 import React from "react";
 
-export interface ErrorsProps extends cn.Props<typeof errorsCn> {
+export interface ErrorsProps extends cnss.Props<typeof errorsCn> {
   errors: ErrorsProp;
 }
 
@@ -36,7 +36,7 @@ export function Errors(props: ErrorsProps) {
 
 export interface RenderErrorsProps
   extends WithErrorsProps,
-    cn.Props<typeof errorsCn> {}
+    cnss.Props<typeof errorsCn> {}
 
 export function renderErrors(
   props: RenderErrorsProps,
@@ -53,7 +53,7 @@ export function anyErrors(
 
 export type ErrorsStyle = "label" | "notice";
 
-export const errorsCn = cn<{ size: Size; style: ErrorsStyle }>()
+export const errorsCn = cnss<{ size: Size; style: ErrorsStyle }>()
   .size("medium", {
     xsmall: "text-xs",
     small: "text-xs",

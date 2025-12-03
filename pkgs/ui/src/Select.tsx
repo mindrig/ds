@@ -5,7 +5,7 @@ import iconRegularCheck from "@wrkspc/icons/svg/regular/check.js";
 import iconRegularChevronDown from "@wrkspc/icons/svg/regular/chevron-down.js";
 import { ComponentProp, componentPropResolve } from "@wrkspc/props";
 import { Size, translateSize } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import {
   Button,
   ButtonProps,
@@ -162,7 +162,7 @@ export function Select<Payload extends string | number>(
   );
 }
 
-export const selectButtonContentCn = cn<{
+export const selectButtonContentCn = cnss<{
   size: Size;
   isPlaceholder: boolean;
 }>()
@@ -177,7 +177,7 @@ export const selectButtonContentCn = cn<{
     true: "text-input-placeholder italic",
   });
 
-export const selectListCn = cn<{ size: Size }>()
+export const selectListCn = cnss<{ size: Size }>()
   .base("min-w-[--trigger-width] spacing-y-1")
   .size("medium", {
     xsmall: "p-1",
@@ -186,7 +186,7 @@ export const selectListCn = cn<{ size: Size }>()
     large: "p-2",
   });
 
-export const selectItemCn = cn<{
+export const selectItemCn = cnss<{
   size: Size;
   isSelected: boolean;
   mono: boolean;

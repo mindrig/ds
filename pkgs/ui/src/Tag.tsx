@@ -1,7 +1,7 @@
 "use client";
 
 import { Size } from "@wrkspc/theme";
-import { cn } from "crab";
+import { cnss } from "cnss";
 import React, { PropsWithChildren } from "react";
 
 /** @deprecated */
@@ -10,7 +10,7 @@ export type TagProps = Tag.Props;
 export namespace Tag {
   export interface Props
     extends Omit<React.HTMLProps<HTMLDivElement>, "color" | "size">,
-      cn.Props<typeof tagCn> {}
+      cnss.Props<typeof tagCn> {}
 
   export type Color =
     | "default"
@@ -33,7 +33,7 @@ export function Tag(props: PropsWithChildren<Tag.Props>) {
 /** @deprecated */
 export type TagColor = Tag.Color;
 
-export const tagCn = cn<{ size: Size; color: Tag.Color }>()
+export const tagCn = cnss<{ size: Size; color: Tag.Color }>()
   .base("leading-none rounded-full whitespace-nowrap inline-flex items-center")
   .color("default", {
     default: "text-tag-ink bg-tag-canvas",
