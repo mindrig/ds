@@ -1,3 +1,4 @@
+export * from "./Block.js";
 export * from "./Breadcrumbs.js";
 export * from "./Button.js";
 export * from "./Checkbox";
