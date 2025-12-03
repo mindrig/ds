@@ -17,8 +17,9 @@
     "crab": "^1.12.0",
     "enso": "^2.6.0",
     "react": "19.2.0",
+    "react-aria-components": "^1.13.0",
     "react-dom": "19.2.0",
-    "react-aria-components": "^1.13.0"
+    "tdollar": "^0.6.0"
   },
   "devDependencies": {
     "@storybook/react": "^9.1.7",

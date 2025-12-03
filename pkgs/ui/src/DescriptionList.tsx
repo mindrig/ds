@@ -25,7 +25,7 @@ export function DescriptionList(props: DescriptionListProps) {
   const items = props.items.filter((i) => !!i);
 
   return (
-    <dl className="divide-y divide-gray-200">
+    <dl className="divide-y divide-divider">
       {items.map((item, index) => (
         <div key={index} className={descriptionListItemCn({ size })}>
           <dt className="flex flex-col gap-2">

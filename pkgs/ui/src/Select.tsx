@@ -1,7 +1,7 @@
 "use client";
 
 import { Icon, IconProp } from "@wrkspc/icons";
-import iconLightCheck from "@wrkspc/icons/svg/light/check.js";
+import iconRegularCheck from "@wrkspc/icons/svg/regular/check.js";
 import iconRegularChevronDown from "@wrkspc/icons/svg/regular/chevron-down.js";
 import { ComponentProp, componentPropResolve } from "@wrkspc/props";
 import { Size, translateSize } from "@wrkspc/theme";
@@ -141,7 +141,7 @@ export function Select<Payload extends string | number>(
                       <div className="w-3 flex items-center">
                         {isSelected && (
                           <Icon
-                            id={iconLightCheck}
+                            id={iconRegularCheck}
                             size="xsmall"
                             color="support"
                           />

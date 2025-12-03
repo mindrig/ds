@@ -21,6 +21,7 @@ export const textCn = cn<{
   inverse: boolean;
   align: boolean | "left" | "center" | "right";
   uppercase: boolean;
+  transform: "uppercase" | "lowercase" | "capitalize" | "none" | "reset";
   italic: boolean;
   mono: boolean;
   bold: boolean;
@@ -121,6 +122,13 @@ export const textCn = cn<{
   })
   .uppercase(false, {
     true: "uppercase",
+    false: "normal-case",
+  })
+  .transform("none", {
+    uppercase: "uppercase",
+    lowercase: "lowercase",
+    capitalize: "capitalize",
+    reset: "normal-case",
   })
   .italic(false, {
     true: "italic",
