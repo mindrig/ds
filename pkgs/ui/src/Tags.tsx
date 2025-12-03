@@ -9,9 +9,9 @@ export interface TagsProps
     cn.Props<typeof tagsCn> {}
 
 export function Tags(props: PropsWithChildren<TagsProps>) {
-  const { size, className, ...restProps } = props;
+  const { size, className, ...wrapperProps } = props;
   return (
-    <div className={tagsCn({ size, className })} {...restProps}>
+    <div className={tagsCn({ size, className })} {...wrapperProps}>
       {props.children}
     </div>
   );

@@ -17,22 +17,24 @@ export namespace Padding {
     | PropTopRightBottomLeft
     | PropObject;
 
-  export type PropYX = [y: Size, x: Size];
+  export type PropSize = Size | false;
 
-  export type PropTopXBottom = [top: Size, x: Size, bottom: Size];
+  export type PropYX = [y: PropSize, x: PropSize];
+
+  export type PropTopXBottom = [top: PropSize, x: PropSize, bottom: PropSize];
 
   export type PropTopRightBottomLeft = [
-    top: Size,
-    right: Size,
-    bottom: Size,
-    left: Size,
+    top: PropSize,
+    right: PropSize,
+    bottom: PropSize,
+    left: PropSize,
   ];
 
   export interface PropObject {
-    top?: Size | undefined;
-    right?: Size | undefined;
-    bottom?: Size | undefined;
-    left?: Size | undefined;
+    top?: PropSize;
+    right?: PropSize;
+    bottom?: PropSize;
+    left?: PropSize;
   }
 
   export interface PropDefined {
@@ -89,12 +91,12 @@ export function resolvePadding(
 }
 
 export const paddingCn = cn<{
-  x: Size;
-  y: Size;
-  top: Size;
-  right: Size;
-  bottom: Size;
-  left: Size;
+  x: Padding.PropSize;
+  y: Padding.PropSize;
+  top: Padding.PropSize;
+  right: Padding.PropSize;
+  bottom: Padding.PropSize;
+  left: Padding.PropSize;
 }>()
   .x("medium", {
     xsmall: "px-1",

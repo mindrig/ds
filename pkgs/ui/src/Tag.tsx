@@ -4,11 +4,24 @@ import { Size } from "@wrkspc/theme";
 import { cn } from "crab";
 import React, { PropsWithChildren } from "react";
 
-export interface TagProps
-  extends Omit<React.HTMLProps<HTMLDivElement>, "color" | "size">,
-    cn.Props<typeof tagCn> {}
+/** @deprecated */
+export type TagProps = Tag.Props;
 
-export function Tag(props: PropsWithChildren<TagProps>) {
+export namespace Tag {
+  export interface Props
+    extends Omit<React.HTMLProps<HTMLDivElement>, "color" | "size">,
+      cn.Props<typeof tagCn> {}
+
+  export type Color =
+    | "default"
+    | "secondary"
+    | "highlight"
+    | "accent"
+    | "success"
+    | "error";
+}
+
+export function Tag(props: PropsWithChildren<Tag.Props>) {
   const { size, color, className, ...restProps } = props;
   return (
     <span className={tagCn({ size, color, className })} {...restProps}>
@@ -17,15 +30,10 @@ export function Tag(props: PropsWithChildren<TagProps>) {
   );
 }
 
-export type TagColor =
-  | "default"
-  | "secondary"
-  | "highlight"
-  | "accent"
-  | "success"
-  | "error";
+/** @deprecated */
+export type TagColor = Tag.Color;
 
-export const tagCn = cn<{ size: Size; color: TagColor }>()
+export const tagCn = cn<{ size: Size; color: Tag.Color }>()
   .base("leading-none rounded-full whitespace-nowrap inline-flex items-center")
   .color("default", {
     default: "text-tag-ink bg-tag-canvas",

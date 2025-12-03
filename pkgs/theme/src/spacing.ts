@@ -18,17 +18,19 @@ export const spacingCn = cn<{
   size: Size;
   align: Spacing.Align;
   justify: Spacing.Justify;
+  gap: boolean;
 }>()
   .base("flex")
   .dir("x", {
     y: "flex-col",
   })
+  .gap(true)
   .size("medium", {
-    xsmall: "gap-1",
-    small: "gap-2",
-    medium: "gap-3",
-    large: "gap-4",
-    xlarge: "gap-6",
+    xsmall: { gap: { true: "gap-1" } },
+    small: { gap: { true: "gap-2" } },
+    medium: { gap: { true: "gap-3" } },
+    large: { gap: { true: "gap-4" } },
+    xlarge: { gap: { true: "gap-6" } },
   })
   .align(false, {
     true: "items-center",
