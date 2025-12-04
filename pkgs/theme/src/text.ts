@@ -100,6 +100,8 @@ export const textCn = cnss<{
           xsmall: "text-xs",
           small: "text-xs",
           medium: "text-sm",
+          large: "text-base",
+          xlarge: "text-lg",
         },
       },
     ],

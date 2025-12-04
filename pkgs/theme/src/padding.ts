@@ -110,34 +110,40 @@ export const paddingCn = cnss<paddingCn.Props>()
     small: "px-2",
     medium: "px-4",
     large: "px-6",
+    xlarge: "px-8",
   })
   .y(false, {
     xsmall: "py-1",
     small: "py-2",
     medium: "py-4",
     large: "py-6",
+    xlarge: "py-8",
   })
   .left(false, {
     xsmall: "pl-1",
     small: "pl-2",
     medium: "pl-4",
     large: "pl-6",
+    xlarge: "pl-8",
   })
   .right(false, {
     xsmall: "pr-1",
     small: "pr-2",
     medium: "pr-4",
     large: "pr-6",
+    xlarge: "pr-8",
   })
   .top(false, {
     xsmall: "pt-1",
     small: "pt-2",
     medium: "pt-4",
     large: "pt-6",
+    xlarge: "pt-8",
   })
   .bottom(false, {
     xsmall: "pb-1",
     small: "pb-2",
     medium: "pb-4",
     large: "pb-6",
+    xlarge: "pb-8",
   });
