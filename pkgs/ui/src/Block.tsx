@@ -1,7 +1,11 @@
 import {
+  Background,
+  Border,
+  borderCn,
   Dir,
   Padding,
   paddingCn,
+  resolveBorder,
   resolvePadding,
   spacingCn,
 } from "@wrkspc/theme";
@@ -12,28 +16,19 @@ export namespace Block {
   export interface Props
     extends cnss.Props<typeof blockCn>,
       cnss.Props<typeof spacingCn> {
-    pad?: Padding.Prop | true | undefined;
-    border?: Border | undefined;
+    pad?: Padding.Prop | undefined;
+    border?: Border.Prop | undefined;
   }
-
-  export type Border = boolean | "top" | "right" | "bottom" | "left";
 }
 
 export function Block(props: React.PropsWithChildren<Block.Props>) {
-  const { size, children } = props;
-  const pad = props.pad === true ? size : props.pad;
-
-  debugger;
-  const cns = cnss(
-    pad && paddingCn(resolvePadding(pad)),
-    spacingCn(props),
-    blockCn(props),
-  );
+  const { size, pad, border, children } = props;
 
   return (
     <div
       className={cnss(
-        pad && paddingCn(resolvePadding(pad)),
+        pad && paddingCn(resolvePadding(pad, size)),
+        border && borderCn(resolveBorder(border)),
         spacingCn(props),
         blockCn(props),
       )}
@@ -46,18 +41,11 @@ export function Block(props: React.PropsWithChildren<Block.Props>) {
 export const blockCn = cnss<{
   divided: boolean;
   dir: Dir;
-  border: Block.Border;
   grow: boolean;
+  background: Background | boolean;
 }>()
   .base("")
   .dir("x")
-  .border(false, {
-    true: "border border-divider",
-    top: "border-t border-divider",
-    right: "border-r border-divider",
-    bottom: "border-b border-divider",
-    left: "border-l border-divider",
-  })
   .divided(false, {
     true: [
       "divide-divider",
@@ -69,4 +57,12 @@ export const blockCn = cnss<{
       },
     ],
   })
-  .grow(false, { true: "grow" });
+  .grow(false, { true: "grow" })
+  .background(false, {
+    true: "bg-canvas",
+    primary: "bg-canvas",
+    context: "bg-canvas-context",
+    header: "bg-canvas-header",
+    hover: "bg-canvas-hover",
+    selected: "bg-canvas-selected",
+  });

@@ -41,6 +41,11 @@
   /*## Background */
 
   --color-canvas: var(--color-gray-100);
+  /* TODO: Figure out these colors used in Block and other new components (?) */
+  /* --color-canvas-secondary: var(--color-gray-200);
+  --color-canvas-context: var(--color-gray-300); */
+
+  /* --color-canvas:  */
 
   /*## Border */
 

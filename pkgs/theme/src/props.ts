@@ -1,8 +1,15 @@
+export type Side = "top" | "right" | "bottom" | "left";
+
 export type Dir = "x" | "y";
 
 export type Color = "main" | "support" | "detail" | "current";
 
-export type Background = "primary" | "secondary";
+export type Background =
+  | "primary"
+  | "context"
+  | "header"
+  | "hover"
+  | "selected";
 
 export const sizes = ["xsmall", "small", "medium", "large", "xlarge"] as const;
 

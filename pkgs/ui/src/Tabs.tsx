@@ -79,7 +79,7 @@ export function Tabs<Id extends string | undefined | null, Payload = undefined>(
   const cns = tabsCng(props);
 
   return (
-    <div>
+    <div className="w-full">
       <div className={cns.wrapper}>
         <div className={cns.inner}>
           {label && <Label {...labelProps(label, { size })} />}

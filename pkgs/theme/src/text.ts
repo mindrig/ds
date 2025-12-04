@@ -28,6 +28,7 @@ export const textCn = cnss<{
   flow: TextFlow;
   capsize: boolean;
   truncate: boolean;
+  leading: "default" | "none";
 }>()
   .capsize(false, { true: "capsize" })
   .color("main", {
@@ -144,6 +145,9 @@ export const textCn = cnss<{
   })
   .truncate(false, {
     true: "truncate",
+  })
+  .leading("default", {
+    none: "leading-none",
   });
 
 export const descriptionTextCn = cnss<{

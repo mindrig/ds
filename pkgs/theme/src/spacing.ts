@@ -22,7 +22,14 @@ export const spacingCn = cnss<{
 }>()
   .base("flex")
   .dir("x", {
-    y: "flex-col",
+    y: [
+      "flex-col",
+      {
+        align: {
+          false: "items-stretch",
+        },
+      },
+    ],
   })
   .gap(true)
   .size("medium", {

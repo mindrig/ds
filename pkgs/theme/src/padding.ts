@@ -1,16 +1,11 @@
 import { never } from "alwaysly";
 import { cnss } from "cnss";
-import { Size } from "./props";
+import { Dir, Size } from "./props";
 
 export namespace Padding {
-  export interface Defined {
-    top: Size;
-    right: Size;
-    bottom: Size;
-    left: Size;
-  }
-
   export type Prop =
+    | boolean
+    | Dir
     | Size
     | PropYX
     | PropTopXBottom
@@ -36,18 +31,26 @@ export namespace Padding {
     bottom?: PropSize;
     left?: PropSize;
   }
-
-  export interface PropDefined {
-    top: Size;
-    right: Size;
-    bottom: Size;
-    left: Size;
-  }
 }
 
 export function resolvePadding(
   padding: Padding.Prop | undefined | null | 0 | typeof NaN | "" | false,
-): Padding.PropObject {
+  size?: Size,
+): Partial<paddingCn.Props> {
+  switch (padding) {
+    case "x":
+      return { x: size || "medium" };
+    case "y":
+      return { y: size || "medium" };
+    case true:
+      return {
+        x: size || "medium",
+        y: size || "medium",
+      };
+    case false:
+      return {};
+  }
+
   if (!padding || typeof padding === "number") return {};
 
   if (typeof padding === "string")
@@ -90,45 +93,49 @@ export function resolvePadding(
   }
 }
 
-export const paddingCn = cnss<{
-  x: Padding.PropSize;
-  y: Padding.PropSize;
-  top: Padding.PropSize;
-  right: Padding.PropSize;
-  bottom: Padding.PropSize;
-  left: Padding.PropSize;
-}>()
-  .x("medium", {
+export namespace paddingCn {
+  export type Props = {
+    x: Padding.PropSize;
+    y: Padding.PropSize;
+    top: Padding.PropSize;
+    right: Padding.PropSize;
+    bottom: Padding.PropSize;
+    left: Padding.PropSize;
+  };
+}
+
+export const paddingCn = cnss<paddingCn.Props>()
+  .x(false, {
     xsmall: "px-1",
     small: "px-2",
     medium: "px-4",
     large: "px-6",
   })
-  .y("medium", {
+  .y(false, {
     xsmall: "py-1",
     small: "py-2",
     medium: "py-4",
     large: "py-6",
   })
-  .left("medium", {
+  .left(false, {
     xsmall: "pl-1",
     small: "pl-2",
     medium: "pl-4",
     large: "pl-6",
   })
-  .right("medium", {
+  .right(false, {
     xsmall: "pr-1",
     small: "pr-2",
     medium: "pr-4",
     large: "pr-6",
   })
-  .top("medium", {
+  .top(false, {
     xsmall: "pt-1",
     small: "pt-2",
     medium: "pt-4",
     large: "pt-6",
   })
-  .bottom("medium", {
+  .bottom(false, {
     xsmall: "pb-1",
     small: "pb-2",
     medium: "pb-4",
