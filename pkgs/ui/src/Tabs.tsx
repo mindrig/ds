@@ -140,7 +140,7 @@ export function Tabs<Id extends string | undefined | null, Payload = undefined>(
 
 export const tabsCng = cnss().group(($) => ({
   wrapper: $<{ style: Tabs.Style }>()
-    .base("flex justify-between gap-2")
+    .base("flex justify-between gap-2 relative mb-[-1px] pb-[1px]")
     .style("default", {
       default: "border-b border-tabs-border",
       inline: "",
