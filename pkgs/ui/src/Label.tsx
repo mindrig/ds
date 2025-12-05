@@ -13,7 +13,15 @@ export type LabelValue = Label.Prop;
 export type LabelProps = Label.Props;
 
 export namespace Label {
-  export type Prop = string | PropObjectString | PropObjectReactNode | PropA11y;
+  export type Prop =
+    | string
+    // TODO: Separate control label from general label, so that control labels
+    // get a11y enforced while general labels can be more freeform. Alternatively,
+    // figure out if react element can be rendered to string for a11y purposes.
+    // | ReactNode
+    | PropObjectString
+    | PropObjectReactNode
+    | PropA11y;
 
   export interface PropA11y {
     a11y: string;

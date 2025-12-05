@@ -6,6 +6,9 @@
   "references": [
     { "path": "../icons/" },
     { "path": "../props/" },
-    { "path": "../theme/" }
+    { "path": "../theme/" },
+    // TODO: Publish react-upgrade and remove reference path when
+    // integrating back into Mind Control.
+    { "path": "../../../../pkgs/react-upgrade/" }
   ]
 }
