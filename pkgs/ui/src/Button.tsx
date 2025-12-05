@@ -137,7 +137,7 @@ export const buttonCn = cnss<{
   align: ButtonAlign;
 }>()
   .base(
-    "inline-flex items-center justify-center whitespace-nowrap truncate ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 font-sans hover:cursor-pointer",
+    "inline-flex items-center justify-center whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 font-sans hover:cursor-pointer",
   )
   .size("medium", {
     xsmall: [
