@@ -44,7 +44,7 @@ export const tagCn = cnss<{ size: Size; color: Tag.Color }>()
     error: "bg-red-100 text-red-900/80",
   })
   .size("medium", {
-    xsmall: "px-[0.4rem] h-[1rem] text-xs",
+    xsmall: "px-[0.2rem] h-[0.9rem] text-xs",
     small: "px-2 h-4 text-sm",
     medium: "px-3 h-5",
     large: "",
