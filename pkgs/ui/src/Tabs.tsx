@@ -41,7 +41,7 @@ export namespace Tabs {
   >;
 
   export interface Props<Id extends string | undefined | null, Payload>
-    extends cnss.Props<typeof tabsCn> {
+    extends cnss.Props<typeof tabsCng> {
     label?: Label.Prop | undefined;
     items: Items<Id, Payload>;
     initial?: Id | undefined;
@@ -56,7 +56,7 @@ export namespace Tabs {
       : never;
   }
 
-  export type Style = "default" | "inline";
+  export type Style = "default" | "inline" | "tags";
 
   export interface Collapsible<Id extends string | undefined | null, Payload> {
     id: Extract<Id, undefined | null>;
@@ -84,7 +84,7 @@ export function Tabs<Id extends string | undefined | null, Payload = undefined>(
         <div className={cns.inner}>
           {label && <Label {...labelProps(label, { size })} />}
 
-          <div className="flex">
+          <div className={cns.items}>
             {items.map(
               (item) =>
                 item && (
@@ -119,15 +119,17 @@ export function Tabs<Id extends string | undefined | null, Payload = undefined>(
         </div>
 
         {active && collapsible && (
-          <Button
-            icon={iconRegularTimes}
-            size={size}
-            style="label"
-            onClick={() => {
-              setId?.(collapsible.id, collapsible.payload);
-              !controlled && onChange?.(collapsible.id, collapsible.payload);
-            }}
-          />
+          <div className={cns.collapse}>
+            <Button
+              icon={iconRegularTimes}
+              size={size}
+              style="label"
+              onClick={() => {
+                setId?.(collapsible.id, collapsible.payload);
+                !controlled && onChange?.(collapsible.id, collapsible.payload);
+              }}
+            />
+          </div>
         )}
       </div>
 
@@ -140,41 +142,60 @@ export function Tabs<Id extends string | undefined | null, Payload = undefined>(
 
 export const tabsCng = cnss().group(($) => ({
   wrapper: $<{ style: Tabs.Style }>()
-    .base("flex justify-between gap-2 relative mb-[-1px] pb-[1px]")
+    .base("flex justify-between gap-2")
     .style("default", {
-      default: "border-b border-tabs-border",
-      inline: "",
+      default:
+        "items-center overflow-x-auto scrollbar scrollbar-none border-b border-tabs-border mb-[-1px] pb-[1px]",
+      inline: "items-center",
+      tags: "items-start border-b border-tabs-border mb-[-1px] pb-[1px]",
     }),
 
   inner: $<{
     size: Size;
+    style: Tabs.Style;
   }>()
     .base("flex items-center gap-2")
     .size("medium", {
-      xsmall: "h-5",
-      small: "h-6",
-      medium: "h-10",
-    }),
-}));
+      xsmall: {
+        style: {
+          default: "h-5",
+          inline: "h-5",
+        },
+      },
+      small: {
+        style: {
+          default: "h-6",
+          inline: "h-6",
+        },
+      },
+      medium: {
+        style: {
+          default: "h-10",
+          inline: "h-10",
+        },
+      },
+    })
+    .style("default"),
 
-export const tabsCn = cnss<{
-  style: Tabs.Style;
-  size: Size;
-}>()
-  .base("flex items-center gap-2")
-  .style("default", {
-    default: "border-b border-tabs-border",
-    inline: "",
-  })
-  .size("medium", {
-    xsmall: "h-5",
-    small: "h-6",
-    medium: "h-10",
-  });
+  items: $<{ style: Tabs.Style }>().base("flex").style("default", {
+    tags: "flex-wrap gap-y-0.5",
+  }),
+
+  collapse: $<{ size: Size; style: Tabs.Style }>()
+    .base("shrink-0")
+    .style("default", {
+      tags: {
+        size: {
+          xsmall: "mt-0.5",
+        },
+      },
+    })
+    .size("medium"),
+}));
 
 export const tabCn = cnss<{ active: boolean; size: Size }>()
   .base(
-    "border-y-[length:var(--border-tab)] border-t-transparent font-semibold flex items-center gap-1",
+    "shrink-0 border-y-[length:var(--border-tab)] border-t-transparent font-semibold flex items-center gap-1 whitespace-nowrap truncate",
   )
   .size("medium", {
     xsmall: "h-5 py-[1px] px-1 text-xs",
