@@ -52,7 +52,14 @@ export function DescriptionList(props: DescriptionListProps) {
   return (
     <dl className="w-full divide-y divide-divider">
       {items.map((item, index) => {
-        const termDescription = "content" in item ? "TODO" : item.description;
+        const termDescription =
+          "content" in item
+            ? item.description
+            : typeof item.term === "object" &&
+                item.term &&
+                "description" in item.term
+              ? item.term.description
+              : undefined;
         // TODO: This is such a complicated expression as Label right now
         // enforces a11y properties which complicates things here. We can
         // separate Label into a control label and a general label to
