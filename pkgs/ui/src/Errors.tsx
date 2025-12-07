@@ -3,17 +3,30 @@ import { cnss } from "cnss";
 import { Field } from "enso";
 import React from "react";
 
-export interface ErrorsProps extends cnss.Props<typeof errorsCn> {
-  errors: ErrorsProp;
+/** @deprecated */
+export type ErrorsProps = Errors.Props;
+
+/** @deprecated */
+export type WithErrorsProps = Errors.WithProp;
+
+/** @deprecated */
+export type ErrorsProp = Errors.Prop;
+
+export namespace Errors {
+  export interface Props extends cnss.Props<typeof errorsCn> {
+    errors: Prop;
+  }
+
+  export interface WithProp {
+    errors?: Prop | undefined | null;
+  }
+
+  export type Prop = string | Field.Error | string[] | Field.Error[];
+
+  export type Style = "label" | "notice";
 }
 
-export interface WithErrorsProps {
-  errors?: ErrorsProp | undefined | null;
-}
-
-export type ErrorsProp = string | Field.Error | string[] | Field.Error[];
-
-export function Errors(props: ErrorsProps) {
+export function Errors(props: Errors.Props) {
   const errors = Array.isArray(props.errors) ? props.errors : [props.errors];
   const messages = errors.map((error) =>
     typeof error === "string" ? error : error.message,
@@ -34,26 +47,24 @@ export function Errors(props: ErrorsProps) {
   );
 }
 
-export interface RenderErrorsProps
-  extends WithErrorsProps,
-    cnss.Props<typeof errorsCn> {}
+export namespace renderErrors {
+  export interface Props extends Errors.WithProp, cnss.Props<typeof errorsCn> {}
+}
 
 export function renderErrors(
-  props: RenderErrorsProps,
+  props: renderErrors.Props,
 ): React.ReactElement | null {
   const { errors } = props;
   return anyErrors(errors) ? <Errors {...{ ...props, errors }} /> : null;
 }
 
 export function anyErrors(
-  errors?: ErrorsProp | undefined | null,
-): errors is ErrorsProp {
+  errors?: Errors.Prop | undefined | null,
+): errors is Errors.Prop {
   return Array.isArray(errors) ? !!errors.length : !!errors;
 }
 
-export type ErrorsStyle = "label" | "notice";
-
-export const errorsCn = cnss<{ size: Size; style: ErrorsStyle }>()
+export const errorsCn = cnss<{ size: Size; style: Errors.Style }>()
   .size("medium", {
     xsmall: "text-xs",
     small: "text-xs",
@@ -61,7 +72,8 @@ export const errorsCn = cnss<{ size: Size; style: ErrorsStyle }>()
     large: "",
   })
   .style("label", {
-    label: "text-red-600",
+    label: "text-errors-label-ink",
     // TODO: Sizes
-    notice: "bg-red-100 text-neutral-900/80 rounded-md px-2 py-1 text-sm",
+    notice:
+      "bg-errors-notice-canvas text-errors-notice-ink rounded-errors-notice px-2 py-1 text-sm border-[length:var(--border-errors-notice)] border-errors-notice-border",
   });

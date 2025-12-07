@@ -18,6 +18,7 @@ export namespace Tag {
     | "highlight"
     | "accent"
     | "success"
+    | "warning"
     | "error";
 }
 
@@ -37,11 +38,12 @@ export const tagCn = cnss<{ size: Size; color: Tag.Color }>()
   .base("leading-none rounded-full whitespace-nowrap inline-flex items-center")
   .color("default", {
     default: "text-tag-ink bg-tag-canvas",
-    secondary: "text-tag-ink-secondary bg-tag-canvas-secondary",
+    secondary: "text-tag-secondary-ink bg-tag-secondary-canvas",
     highlight: "bg-amber-100 text-neutral-900/80",
     accent: "bg-purple-100 text-neutral-900/80",
     success: "bg-green-100 text-green-900/80",
-    error: "bg-red-100 text-red-900/80",
+    error: "text-tag-error-ink bg-tag-error-canvas",
+    warning: "text-tag-warning-ink bg-tag-warning-canvas",
   })
   .size("medium", {
     xsmall: "px-[0.2rem] h-[0.9rem] text-xs",

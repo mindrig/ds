@@ -137,15 +137,28 @@
 
   /*## Tag */
 
-  /*### Color */
+  /*### color */
 
-  /**** Default */
+  /*----- default */
   --color-tag-ink: var(--color-gray-200);
   --color-tag-canvas: var(--color-gray-600);
-
-  /**** Secondary */
-  --color-tag-ink-secondary: var(--color-gray-300);
-  --color-tag-canvas-secondary: var(--color-gray-700);
+  /*----- secondary */
+  --color-tag-secondary-ink: var(--color-gray-300);
+  --color-tag-secondary-canvas: var(--color-gray-700);
+  /*----- error */
+  --color-tag-error-ink: color-mix(
+    in srgb,
+    var(--color-red-900) 80%,
+    var(--color-tag-error-canvas) 100%
+  );
+  --color-tag-error-canvas: var(--color-red-100);
+  /*----- warning */
+  --color-tag-warning-ink: color-mix(
+    in srgb,
+    var(--color-orange-900) 80%,
+    var(--color-tag-warning-canvas) 100%
+  );
+  --color-tag-warning-canvas: var(--color-orange-100);
 
   /*## Tab */
 
@@ -156,4 +169,21 @@
   /*---- Active */
   --color-tab-active-ink: var(--color-gray-600);
   --color-tab-active-border: var(--color-gray-500);
+
+  /*## Errors */
+
+  /*### style */
+
+  /*----- label */
+  --color-errors-label-ink: var(--color-red-600);
+  /*----- notice */
+  --color-errors-notice-canvas: var(--color-red-100);
+  --color-errors-notice-ink: color-mix(
+    in srgb,
+    var(--text-neutral-900) 80%,
+    var(--color-errors-notice-canvas) 100%
+  );
+  --color-errors-notice-border: transparent;
+  --border-errors-notice: 0;
+  --radius-errors-notice: var(--radius-md);
 }
