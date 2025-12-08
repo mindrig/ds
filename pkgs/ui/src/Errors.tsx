@@ -1,7 +1,6 @@
 import { Size } from "@wrkspc/theme";
 import { cnss } from "cnss";
-import { Field } from "enso";
-import React from "react";
+import React, { ReactNode } from "react";
 
 /** @deprecated */
 export type ErrorsProps = Errors.Props;
@@ -15,18 +14,25 @@ export type ErrorsProp = Errors.Prop;
 export namespace Errors {
   export interface Props extends cnss.Props<typeof errorsCn> {
     errors: Prop;
+    actions?: ReactNode | undefined;
   }
 
   export interface WithProp {
     errors?: Prop | undefined | null;
   }
 
-  export type Prop = string | Field.Error | string[] | Field.Error[];
+  export type Prop = string | Entry | string[] | Entry[];
+
+  interface Entry {
+    type?: string | undefined;
+    message: string;
+  }
 
   export type Style = "label" | "notice";
 }
 
 export function Errors(props: Errors.Props) {
+  const { actions } = props;
   const errors = Array.isArray(props.errors) ? props.errors : [props.errors];
   const messages = errors.map((error) =>
     typeof error === "string" ? error : error.message,
@@ -34,15 +40,21 @@ export function Errors(props: Errors.Props) {
   // TODO: Use React Aria Components if you can figure out how to get it to work
   return (
     <div className={errorsCn(props)}>
-      {messages.length > 1 ? (
-        <ul>
-          {messages.map((message, index) => (
-            <li key={index}>{message}</li>
-          ))}
-        </ul>
-      ) : (
-        messages[0]
-      )}
+      <div className="flex gap-3 justify-between">
+        <div>
+          {messages.length > 1 ? (
+            <ul>
+              {messages.map((message, index) => (
+                <li key={index}>{message}</li>
+              ))}
+            </ul>
+          ) : (
+            messages[0]
+          )}
+        </div>
+
+        {actions}
+      </div>
     </div>
   );
 }
@@ -75,5 +87,5 @@ export const errorsCn = cnss<{ size: Size; style: Errors.Style }>()
     label: "text-errors-label-ink",
     // TODO: Sizes
     notice:
-      "bg-errors-notice-canvas text-errors-notice-ink rounded-errors-notice px-2 py-1 text-sm border-[length:var(--border-errors-notice)] border-errors-notice-border",
+      "w-full bg-errors-notice-canvas text-errors-notice-ink rounded-errors-notice px-2 py-1 text-sm border-[length:var(--border-errors-notice)] border-errors-notice-border",
   });

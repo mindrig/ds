@@ -82,6 +82,19 @@ export function Button(
   );
 
   if ("href" in restProps) {
+    // TODO: Right now hash React Router with RAI end up generating absolute
+    // URIs with the hash prefix, breaking external links. Find a way to fix it.
+    if (
+      restProps.href?.startsWith("https:") ||
+      restProps.href?.startsWith("mailto:")
+    )
+      return (
+        // @ts-expect-error -- TODO: I have no idea why it's failing here
+        <a className={className} {...restProps} href={restProps.href || ""}>
+          {content}
+        </a>
+      );
+
     return (
       <Link className={className} {...restProps} href={restProps.href || ""}>
         {content}

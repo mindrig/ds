@@ -19,6 +19,8 @@ export namespace Block {
     pad?: Padding.Prop | undefined;
     border?: Border.Prop | undefined;
   }
+
+  export type Empty = "hide" | "preserve";
 }
 
 export function Block(props: React.PropsWithChildren<Block.Props>) {
@@ -43,6 +45,7 @@ export const blockCn = cnss<{
   dir: Dir;
   grow: boolean;
   background: Background | boolean;
+  empty: Block.Empty;
 }>()
   .base("")
   .dir("x")
@@ -65,4 +68,7 @@ export const blockCn = cnss<{
     header: "bg-canvas-header",
     hover: "bg-canvas-hover",
     selected: "bg-canvas-selected",
+  })
+  .empty("hide", {
+    hide: "empty:hidden",
   });
