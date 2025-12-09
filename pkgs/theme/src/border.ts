@@ -115,7 +115,7 @@ export const borderCn = cnss<borderCn.Props>()
     true: "border-divider border-r",
   })
   .top(false, {
-    true: "border-dividerborder-t",
+    true: "border-divider border-t",
   })
   .bottom(false, {
     true: "border-divider border-b",

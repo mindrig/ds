@@ -18,6 +18,7 @@ export * from "./Input";
 export * from "./InputController";
 export * from "./Label";
 export * from "./Menu.js";
+export * from "./Notice";
 export * from "./NumberField";
 export * from "./NumberFieldController";
 export * from "./PlainText.js";

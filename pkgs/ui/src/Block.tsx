@@ -68,6 +68,8 @@ export const blockCn = cnss<{
     header: "bg-canvas-header",
     hover: "bg-canvas-hover",
     selected: "bg-canvas-selected",
+    highlight: "bg-canvas-highlight",
+    error: "bg-canvas-error",
   })
   .empty("hide", {
     hide: "empty:hidden",

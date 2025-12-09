@@ -238,7 +238,7 @@ export const buttonCn = cnss<{
   .style("solid", {
     solid: "shadow-md",
     transparent: "border shadow-none",
-    label: "shadow-none",
+    label: "shadow-none flex-shrink-0",
   })
   .align("auto", {
     start: "self-start",

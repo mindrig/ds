@@ -175,15 +175,5 @@
   /*### style */
 
   /*----- label */
-  --color-errors-label-ink: var(--color-red-600);
-  /*----- notice */
-  --color-errors-notice-canvas: var(--color-red-100);
-  --color-errors-notice-ink: color-mix(
-    in srgb,
-    var(--text-neutral-900) 80%,
-    var(--color-errors-notice-canvas) 100%
-  );
-  --color-errors-notice-border: transparent;
-  --border-errors-notice: 0;
-  --radius-errors-notice: var(--radius-md);
+  --color-errors-ink: var(--color-red-600);
 }

@@ -9,7 +9,10 @@ export type Background =
   | "context"
   | "header"
   | "hover"
-  | "selected";
+  | "selected"
+  | "highlight"
+  | "error"
+  | "warning";
 
 export const sizes = ["xsmall", "small", "medium", "large", "xlarge"] as const;
 
