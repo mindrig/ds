@@ -15,20 +15,24 @@ import {
   Select as RASelect,
   SelectValue,
 } from "react-aria-components";
-import { Description } from "./Description";
-import { Label, labelA11yProps, labelProps, LabelValue } from "./Label";
 import { fieldCn, FieldCnProps, inputCn, InputCnProps } from "./classNames";
-import { renderErrors, WithErrorsProps } from "./index.js";
+import { Description } from "./Description";
+import { Errors, renderErrors } from "./Errors.js";
+import { Label, labelA11yProps, labelProps } from "./Label";
 
+/** @deprecated */
 export type SelectOption<Payload extends string | number> =
   Select.Option<Payload>;
 
+/** @deprecated */
 export type SelectOptions<Payload extends string | number> =
   Select.Options<Payload>;
 
+/** @deprecated */
 export type SelectOptionItem<Payload extends string | number> =
   Select.OptionItem<Payload>;
 
+/** @deprecated */
 export type SelectProps<Payload extends string | number | null | undefined> =
   Select.Props<Payload>;
 
@@ -36,6 +40,7 @@ export namespace Select {
   export interface Option<Payload extends string | number | null | undefined> {
     label?: string | undefined;
     value: Payload;
+    icon?: Icon.Prop | undefined;
   }
 
   export type Options<Payload extends string | number | null | undefined> =
@@ -53,8 +58,8 @@ export namespace Select {
     // extends  Omit<React.ComponentProps<typeof RASelect>, "selectedKey">
     extends FieldCnProps,
       Omit<InputCnProps, "icon">,
-      WithErrorsProps {
-    label: LabelValue;
+      Errors.WithProp {
+    label: Label.Prop;
     button?: ComponentProp<ButtonProps> | undefined;
     icon?: IconProp | undefined;
     description?: string | undefined;
@@ -147,6 +152,7 @@ export function Select<Payload extends string | number>(
                           />
                         )}
                       </div>
+                      {option.icon && <Icon size="small" id={option.icon} />}
                       <div>{option.label || option.value}</div>
                     </div>
                   )}
