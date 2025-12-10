@@ -43,6 +43,7 @@ export function Block(props: React.PropsWithChildren<Block.Props>) {
 export const blockCn = cnss<{
   divided: boolean;
   dir: Dir;
+  full: boolean;
   grow: boolean;
   background: Background | boolean;
   empty: Block.Empty;
@@ -60,6 +61,7 @@ export const blockCn = cnss<{
       },
     ],
   })
+  .full(false, { true: "basis-full" })
   .grow(false, { true: "grow" })
   .background(false, {
     true: "bg-canvas",

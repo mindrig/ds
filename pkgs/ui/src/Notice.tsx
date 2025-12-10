@@ -1,3 +1,4 @@
+import { Icon } from "@wrkspc/icons";
 import iconRegularTimes from "@wrkspc/icons/svg/regular/times.js";
 import { Background, Size, textCn, translateSize } from "@wrkspc/theme";
 import { Block, Button } from "@wrkspc/ui";
@@ -5,6 +6,7 @@ import { PropsWithChildren } from "react";
 
 export namespace Notice {
   export interface Props {
+    icon?: Icon.Prop | undefined;
     size?: Size | undefined;
     header?: string | undefined;
     actions?: React.ReactNode | undefined;
@@ -17,7 +19,8 @@ export namespace Notice {
 }
 
 export function Notice(props: PropsWithChildren<Notice.Props>) {
-  const { size, header, color, children, actions, compact, onClose } = props;
+  const { icon, size, header, color, children, actions, compact, onClose } =
+    props;
 
   return (
     <Block
@@ -29,19 +32,27 @@ export function Notice(props: PropsWithChildren<Notice.Props>) {
       justify="between"
       align="start"
     >
-      <Block dir="y" size={translateSize(size, -1)} grow>
-        {header && (
-          <h3
-            className={textCn({
-              role: "label",
-              size: translateSize(size, 1),
-            })}
-          >
-            {header}
-          </h3>
+      <Block dir="x" size={size} align="start" full>
+        {icon && (
+          <div className="mt-0.5">
+            <Icon id={icon} size={size} />
+          </div>
         )}
 
-        {children}
+        <Block dir="y" size={translateSize(size, -1)} full>
+          {header && (
+            <h3
+              className={textCn({
+                role: "label",
+                size: translateSize(size, 1),
+              })}
+            >
+              {header}
+            </h3>
+          )}
+
+          {children}
+        </Block>
       </Block>
 
       {(actions || onClose) && (
