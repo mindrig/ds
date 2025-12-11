@@ -1,4 +1,5 @@
 {
   "private": true,
-  "name": "@mindcontrol/ds-repo"
+  "name": "@mindcontrol/ds-repo",
+  "license": "FSL-1.1-ALv2"
 }
