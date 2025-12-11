@@ -126,7 +126,7 @@ export function Input<Value extends string | number | null | undefined>(
           </div>
         )}
 
-        <div className="relative w-full">
+        <div className="relative w-full flex">
           {icon && (
             <div className={inputIconCn({ size })}>
               <Icon id={icon} size={size} color="detail" className="absolute" />
