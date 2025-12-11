@@ -43,10 +43,10 @@ export const inputCn = cnss<{
   content: InputContent;
 }>()
   .base(
-    "flex justify-between items-center w-full placeholder:text-input-placeholder border border-input-border bg-input-canvas ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 shadow-input",
+    "grow flex justify-between items-center placeholder:text-input-placeholder border border-input-border bg-input-canvas ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 shadow-input",
   )
   .size("medium", {
-    xsmall: "h-6 rounded-input-sm p-1 text-xs",
+    xsmall: "h-5 rounded-input-sm px-1 py-[1px] text-xs",
     small: "h-7 rounded-input-sm px-2 py-1 text-sm",
     medium: "h-10 rounded-input px-3 py-2 text-sm",
     large: "h-11 rounded-input px-8",
