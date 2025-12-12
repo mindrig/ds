@@ -20,9 +20,9 @@ export function SelectController<
           {...control}
           errors={errors}
           value={value}
-          onChange={(key) => {
+          onChange={(nextValue) => {
             // @ts-ignore: Figure out who's tripping, React Aria Components or Enso
-            onChange(key);
+            onChange(nextValue);
             // TODO: Add a mechanism to support manual revalidation events
             // to Enso
             control.onBlur(new Event("blur") as any);

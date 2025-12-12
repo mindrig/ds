@@ -39,8 +39,8 @@ export function SelectOption<Value extends Select.Value>(
 
   return (
     <ListBoxItem
-      key={option.value}
-      id={String(option.value)}
+      // @ts-expect-error: RAC has no undefineds
+      id={option.value}
       textValue={
         option.label ? labelA11yAttr(option.label) : String(option.value)
       }

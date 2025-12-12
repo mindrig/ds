@@ -50,7 +50,6 @@ export function TextArea(props: TextAreaProps) {
           else if (ref) ref.current = el;
         }}
         onChange={(e) => {
-          debugger;
           onHeightChange();
           if (onChange) onChange(e.currentTarget.value);
         }}

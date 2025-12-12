@@ -160,7 +160,7 @@ export function Select<Payload extends string | number>(
 
       <Popover className="shadow-menu bg-menu-canvas border border-menu-border rounded-menu overflow-y-auto">
         <ListBox className={selectListCn({ size })}>
-          <SelectOptions options={options} {...{ size, mono }} />
+          <SelectOptions {...{ options, size, mono }} />
         </ListBox>
       </Popover>
 
