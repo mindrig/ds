@@ -31,8 +31,9 @@ export function TextArea(props: TextAreaProps) {
     ref,
     ...restProps
   } = props;
-  const { textAreaRef, onHeightChange } = useTextAreaAutoSize();
+  const { textAreaRef, onHeightChange } = useTextAreaAutoSize(false);
 
+  console.log("***", label);
   return (
     <TextField
       {...restProps}
@@ -49,6 +50,7 @@ export function TextArea(props: TextAreaProps) {
           else if (ref) ref.current = el;
         }}
         onChange={(e) => {
+          debugger;
           onHeightChange();
           if (onChange) onChange(e.currentTarget.value);
         }}
@@ -68,7 +70,7 @@ export const textAreaCn = cnss<{ size: Size; mono: boolean }>()
   .size("medium", {
     xsmall: "min-h-6 rounded-input-sm p-1 text-xs",
     small: "min-h-7 rounded-input-sm px-2 py-1 text-sm",
-    medium: "min-h-15 rounded-input p-3 text-sm",
+    medium: "min-h-15 rounded-input p-3 ",
     large: "min-h-11 rounded-input px-8",
   })
   .mono(false, {

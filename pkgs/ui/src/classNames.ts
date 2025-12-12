@@ -48,7 +48,7 @@ export const inputCn = cnss<{
   .size("medium", {
     xsmall: "h-5 rounded-input-sm px-1 py-[1px] text-xs",
     small: "h-7 rounded-input-sm px-2 py-1 text-sm",
-    medium: "h-10 rounded-input px-3 py-2 text-sm",
+    medium: "h-10 rounded-input px-3 py-2",
     large: "h-11 rounded-input px-8",
   })
   .prefix(false, {

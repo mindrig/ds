@@ -1,12 +1,15 @@
-import { type Size } from "@wrkspc/theme";
+import { type Size as ThemeSize } from "@wrkspc/theme";
 import { cnss } from "cnss";
 import { type HTMLProps } from "react";
 import { type IconId } from "..";
 
+/** @deprecated */
 export type IconProps = Icon.Props;
 
+/** @deprecated */
 export type IconBaseProps = Icon.PropsBase;
 
+/** @deprecated */
 export type IconProp = Icon.Prop;
 
 export namespace Icon {
@@ -30,9 +33,21 @@ export namespace Icon {
     type: "svg";
     href: string;
   }
+
+  export type Size = ThemeSize | "fill";
+
+  export type Color =
+    | "main" // TODO: Rename to adaptive, as it adapts via `currentColor`
+    | "primary"
+    | "support"
+    | "detail"
+    | "brand"
+    | "danger"
+    | "success"
+    | "current";
 }
 
-export function Icon(props: IconProps) {
+export function Icon(props: Icon.Props) {
   // This allows passing either the icon id or an object with the id and
   // props. It allows to wrap the component:
   //   <Icon id={props.icon} size="xlarge" color="support" />
@@ -57,20 +72,14 @@ export function Icon(props: IconProps) {
   );
 }
 
-export type IconSize = Size | "fill";
+/** @deprecated */
+export type IconSize = Icon.Size;
 
-export type IconColor =
-  | "main" // TODO: Rename to adaptive, as it adapts via `currentColor`
-  | "primary"
-  | "support"
-  | "detail"
-  | "brand"
-  | "danger"
-  | "success"
-  | "current";
+/** @deprecated */
+export type IconColor = Icon.Color;
 
 export const iconMaskCn = cnss<{
-  color: IconColor;
+  color: Icon.Color;
   inverse: boolean;
   trigger: boolean;
 }>()
@@ -124,7 +133,7 @@ export const iconMaskCn = cnss<{
   .inverse(false);
 
 export const iconInlineCn = cnss<{
-  color: IconColor;
+  color: Icon.Color;
   inverse: boolean;
   trigger: boolean;
 }>()
@@ -174,9 +183,9 @@ export const iconInlineCn = cnss<{
   .inverse(false);
 
 export const iconBaseCn = cnss<{
-  size: IconSize;
+  size: Icon.Size;
 }>()
-  .base("inline-flex items-center")
+  .base("flex-shrink-0 inline-flex items-center")
   .size("medium", {
     xsmall: "size-3",
     small: "size-4",

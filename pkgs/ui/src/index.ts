@@ -24,7 +24,7 @@ export * from "./NumberFieldController";
 export * from "./PlainText.js";
 export * from "./Radio";
 export * from "./RadioGroupController";
-export * from "./Select";
+export * from "./Select/index.js";
 export * from "./SelectController";
 export * from "./ServerForm";
 export * from "./Switch";

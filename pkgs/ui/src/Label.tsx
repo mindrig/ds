@@ -3,7 +3,7 @@
 import { Icon } from "@wrkspc/icons";
 import { Size, textCn, translateSize } from "@wrkspc/theme";
 import { cnss } from "cnss";
-import React from "react";
+import React, { ReactNode } from "react";
 import { Label as RALabel } from "react-aria-components";
 
 /** @deprecated */
@@ -20,6 +20,7 @@ export namespace Label {
     // figure out if react element can be rendered to string for a11y purposes.
     // | ReactNode
     | PropObjectString
+    | PropObjectReactNodeDeprecated
     | PropObjectReactNode
     | PropA11y;
 
@@ -31,8 +32,15 @@ export namespace Label {
     label: string;
   }
 
-  export interface PropObjectReactNode extends PropObjectBase, PropA11y {
+  /** @deprecated */
+  export interface PropObjectReactNodeDeprecated
+    extends PropObjectBase,
+      PropA11y {
     label: React.ReactNode;
+  }
+
+  export interface PropObjectReactNode extends PropObjectBase, PropA11y {
+    node: React.ReactNode;
   }
 
   export interface PropObjectBase {
@@ -73,10 +81,14 @@ export function labelProps(
   label: Label.Prop | undefined,
   propsOverrides?: Partial<Label.Props>,
 ): React.PropsWithChildren<Label.Props> {
-  if (label && typeof label === "object" && "label" in label)
+  if (
+    label &&
+    typeof label === "object" &&
+    ("label" in label || "node" in label)
+  )
     return {
       icon: label.icon,
-      children: label.label,
+      children: "label" in label ? label.label : label.node,
       actions: label.actions,
       ...propsOverrides,
     };
@@ -93,6 +105,19 @@ export function labelProps(
   };
 }
 
+export function labelChildren(label: Label.Prop | undefined): ReactNode {
+  if (
+    label &&
+    typeof label === "object" &&
+    ("label" in label || "node" in label)
+  )
+    return "label" in label ? label.label : label.node;
+
+  if (label && typeof label === "object" && "a11y" in label) return null;
+
+  return label;
+}
+
 export function labelA11yProps(
   prop: Label.Prop,
   propsOverrides?: Partial<Label.Props>,
@@ -103,7 +128,7 @@ export function labelA11yProps(
   };
 }
 
-export function labelA11yAttr(prop: Label.Prop) {
+export function labelA11yAttr(prop: Label.Prop): string {
   return typeof prop == "object"
     ? "a11y" in prop
       ? prop.a11y

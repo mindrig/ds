@@ -1,24 +1,28 @@
 "use client";
 
-import { Icon, IconProp } from "@wrkspc/icons";
-import iconRegularCheck from "@wrkspc/icons/svg/regular/check.js";
+import { Icon } from "@wrkspc/icons";
 import iconRegularChevronDown from "@wrkspc/icons/svg/regular/chevron-down.js";
 import { ComponentProp, componentPropResolve } from "@wrkspc/props";
-import { Size, translateSize } from "@wrkspc/theme";
-import { cnss } from "cnss";
+import { translateSize } from "@wrkspc/theme";
+import { ReactNode } from "react";
 import {
   Button,
   ButtonProps,
   ListBox,
-  ListBoxItem,
   Popover,
   Select as RASelect,
   SelectValue,
 } from "react-aria-components";
-import { fieldCn, FieldCnProps, inputCn, InputCnProps } from "./classNames";
-import { Description } from "./Description";
-import { Errors, renderErrors } from "./Errors.js";
-import { Label, labelA11yProps, labelProps } from "./Label";
+import { fieldCn, FieldCnProps, inputCn, InputCnProps } from "../classNames";
+import { Description } from "../Description";
+import { Errors, renderErrors } from "../Errors.js";
+import { Label, labelA11yProps, labelProps } from "../Label";
+import {
+  selectButtonContentCn,
+  selectButtonContentTextCn,
+  selectListCn,
+} from "./cns";
+import { SelectOptions } from "./Options";
 
 /** @deprecated */
 export type SelectOption<Payload extends string | number> =
@@ -26,11 +30,11 @@ export type SelectOption<Payload extends string | number> =
 
 /** @deprecated */
 export type SelectOptions<Payload extends string | number> =
-  Select.Options<Payload>;
+  Select.OptionItems<Payload>;
 
 /** @deprecated */
 export type SelectOptionItem<Payload extends string | number> =
-  Select.OptionItem<Payload>;
+  Select.OptionItemNested<Payload>;
 
 /** @deprecated */
 export type SelectProps<Payload extends string | number | null | undefined> =
@@ -38,21 +42,45 @@ export type SelectProps<Payload extends string | number | null | undefined> =
 
 export namespace Select {
   export interface Option<Payload extends string | number | null | undefined> {
-    label?: string | undefined;
+    type?: "option" | undefined;
+    label?: Label.Prop | undefined;
     value: Payload;
     icon?: Icon.Prop | undefined;
   }
 
-  export type Options<Payload extends string | number | null | undefined> =
-    Array<Option<Payload>>;
+  export interface OptionHeader {
+    type: "header";
+    label: ReactNode | undefined;
+    icon?: Icon.Prop | undefined;
+  }
 
-  export type OptionItem<Payload extends string | number> =
+  export interface Section {
+    type: "section";
+    label: Label.Prop | undefined;
+    icon?: Icon.Prop | undefined;
+    options: OptionItemsNested<Value>;
+    flatten?: boolean | undefined;
+  }
+
+  export type Value = string | number | null | undefined;
+
+  export type OptionItems<Payload extends Value> = Array<OptionItem<Payload>>;
+
+  export type OptionItem<Payload extends Value> =
+    | OptionItemNested<Payload>
+    | Section;
+
+  export type OptionItemsNested<Payload extends Value> = Array<
+    OptionItemNested<Payload>
+  >;
+
+  export type OptionItemNested<Payload extends Value> =
     | Option<Payload>
     | false
     | undefined
     | null;
 
-  export interface Props<Payload extends string | number | null | undefined>
+  export interface Props<Payload extends Value>
     // TODO: Reenable extending React Aria Components props when the optional
     // props missing undefined issue is fixed.
     // extends  Omit<React.ComponentProps<typeof RASelect>, "selectedKey">
@@ -61,10 +89,10 @@ export namespace Select {
       Errors.WithProp {
     label: Label.Prop;
     button?: ComponentProp<ButtonProps> | undefined;
-    icon?: IconProp | undefined;
+    icon?: Icon.Prop | undefined;
     description?: string | undefined;
     placeholder?: string | undefined;
-    options: Array<OptionItem<Payload & {}>>;
+    options: OptionItems<Payload & {}>;
     italic?: boolean;
     mono?: boolean;
     isDisabled?: boolean | undefined;
@@ -110,11 +138,13 @@ export function Select<Payload extends string | number>(
           className={inputCn({ size, italic, mono })}
           isDisabled={!!isDisabled}
         >
-          <SelectValue>
+          <SelectValue className="w-stretch text-left">
             {({ selectedText, isPlaceholder }) => (
               <div className={selectButtonContentCn({ size, isPlaceholder })}>
                 {icon && <Icon id={icon} size={size} color="detail" />}
-                <span>{isPlaceholder ? placeholder : selectedText}</span>
+                <span className={selectButtonContentTextCn({ isPlaceholder })}>
+                  {isPlaceholder ? placeholder : selectedText}
+                </span>
               </div>
             )}
           </SelectValue>
@@ -130,35 +160,7 @@ export function Select<Payload extends string | number>(
 
       <Popover className="shadow-menu bg-menu-canvas border border-menu-border rounded-menu overflow-y-auto">
         <ListBox className={selectListCn({ size })}>
-          {props.options.map(
-            (option) =>
-              option && (
-                <ListBoxItem
-                  key={option.value}
-                  id={option.value}
-                  textValue={option.label || String(option.value)}
-                  className={({ isSelected }) =>
-                    selectItemCn({ size, mono, isSelected })
-                  }
-                >
-                  {({ isSelected }) => (
-                    <div className="flex gap-1 items-center">
-                      <div className="w-3 flex items-center">
-                        {isSelected && (
-                          <Icon
-                            id={iconRegularCheck}
-                            size="xsmall"
-                            color="support"
-                          />
-                        )}
-                      </div>
-                      {option.icon && <Icon size="small" id={option.icon} />}
-                      <div>{option.label || option.value}</div>
-                    </div>
-                  )}
-                </ListBoxItem>
-              ),
-          )}
+          <SelectOptions options={options} {...{ size, mono }} />
         </ListBox>
       </Popover>
 
@@ -167,48 +169,3 @@ export function Select<Payload extends string | number>(
     </RASelect>
   );
 }
-
-export const selectButtonContentCn = cnss<{
-  size: Size;
-  isPlaceholder: boolean;
-}>()
-  .base("flex items-center whitespace-nowrap truncate")
-  .size("medium", {
-    xsmall: "gap-1",
-    small: "gap-1",
-    medium: "gap-2",
-    large: "gap-2",
-  })
-  .isPlaceholder(false, {
-    true: "text-input-placeholder italic",
-  });
-
-export const selectListCn = cnss<{ size: Size }>()
-  .base("min-w-[--trigger-width] spacing-y-1")
-  .size("medium", {
-    xsmall: "p-1",
-    small: "p-1",
-    medium: "p-2",
-    large: "p-2",
-  });
-
-export const selectItemCn = cnss<{
-  size: Size;
-  isSelected: boolean;
-  mono: boolean;
-}>()
-  .base(
-    "rounded-option hover:bg-option-canvas-hover hover:text-option-ink-hover cursor-pointer select-none",
-  )
-  .size("medium", {
-    xsmall: "py-1 px-1 text-sm",
-    small: "py-1 px-2 text-sm",
-    medium: "py-1 px-3 text-sm",
-    large: "py-1 px-3",
-  })
-  .isSelected(false, {
-    true: "text-option-ink-selected bg-option-canvas-selected",
-  })
-  .mono(false, {
-    true: "font-mono",
-  });

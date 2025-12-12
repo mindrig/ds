@@ -1,6 +1,6 @@
 "use client";
 
-import { Icon, IconProp } from "@wrkspc/icons";
+import { Icon } from "@wrkspc/icons";
 import React from "react";
 import {
   Input as RAInput,
@@ -8,9 +8,9 @@ import {
   TextField as RATextField,
 } from "react-aria-components";
 import { Description } from "./Description";
-import { Label, labelA11yProps, labelProps, LabelValue } from "./Label";
+import { Label, labelA11yProps, labelProps } from "./Label";
 import { fieldCn, inputCn, InputCnProps, inputIconCn } from "./classNames";
-import { anyErrors, Errors, WithErrorsProps, Wrap } from "./index.js";
+import { anyErrors, Errors, Wrap } from "./index.js";
 
 export type InputProps<Value extends string | number | null | undefined> =
   Input.Props<Value>;
@@ -21,11 +21,11 @@ export namespace Input {
     // props missing undefined issue is fixed.
     // extends Omit<React.ComponentProps<typeof RATextField>, "type" | "value">,
     extends Omit<InputCnProps, "prefix" | "icon">,
-      WithErrorsProps {
-    label: LabelValue;
+      Errors.WithProp {
+    label: Label.Prop;
     description?: string | undefined;
     placeholder?: string | undefined;
-    icon?: IconProp | undefined;
+    icon?: Icon.Prop | undefined;
     prefix?: string;
     ref?: React.Ref<HTMLInputElement | null>;
     type?: Type<Value>;
@@ -154,5 +154,3 @@ export function Input<Value extends string | number | null | undefined>(
     </Wrap>
   );
 }
-
-function Content() {}

@@ -16,7 +16,7 @@
     "@wrkspc/props": "workspace:*",
     "@wrkspc/theme": "workspace:*",
     "cnss": "^0.1.0",
-    "enso": "^2.6.0",
+    "enso": "2.7.0-beta.1",
     "react": "19.2.0",
     "react-aria-components": "^1.13.0",
     "react-dom": "19.2.0",
