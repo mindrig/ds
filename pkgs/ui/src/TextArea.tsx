@@ -15,7 +15,7 @@ export interface TextAreaProps
     InputCnProps,
     WithErrorsProps {
   label: LabelValue;
-  description?: string | undefined;
+  description?: string | undefined | false;
   placeholder?: string | undefined;
   ref?: React.Ref<HTMLTextAreaElement | null>;
 }
