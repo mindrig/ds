@@ -41,6 +41,9 @@ export function SelectOption<Value extends Select.Value>(
     <ListBoxItem
       // @ts-expect-error: RAC has no undefineds
       id={option.value}
+      // NOTE: Without key, RAC throws an error "Cannot change the id of an item."
+      // The workaround is to assign key as well as id: https://github.com/adobe/react-spectrum/issues/5176#issuecomment-1743674682
+      key={option.value}
       textValue={
         option.label ? labelA11yAttr(option.label) : String(option.value)
       }
