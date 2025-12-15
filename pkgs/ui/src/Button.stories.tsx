@@ -80,7 +80,7 @@ export const WithIconAndTag: Story = {
 
 export const AsLink: Story = {
   args: {
-    href: "https://mindrig.dev",
+    href: "https://mindrig.ai",
     target: "_blank",
     rel: "noreferrer",
     children: "Open Docs",
