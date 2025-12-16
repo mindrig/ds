@@ -33,7 +33,6 @@ export function TextArea(props: TextAreaProps) {
   } = props;
   const { textAreaRef, onHeightChange } = useTextAreaAutoSize(false);
 
-  console.log("***", label);
   return (
     <TextField
       {...restProps}
