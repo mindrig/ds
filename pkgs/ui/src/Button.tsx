@@ -222,7 +222,9 @@ export const buttonCn = cnss<{
       style: {
         solid: "bg-red-800 text-white hover:bg-red-700",
         transparent:
-          "text-red-950/80 hover:bg-red-50 border-red-300 hover:border-red-400",
+          "text-button-transparent-danger-ink hover:text-button-transparent-danger-ink-hover bg-button-transparent-danger-canvas hover:bg-button-transparent-danger-canvas-hover border-button-transparent-danger-border hover:border-button-transparent-danger-border-hover",
+        label:
+          "text-button-danger-label-ink hover:text-button-danger-label-ink-hover",
       },
     },
     current: {
