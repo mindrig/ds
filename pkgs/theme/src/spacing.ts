@@ -36,8 +36,8 @@ export const spacingCn = cnss<{
     xsmall: { gap: { true: "gap-1" } },
     small: { gap: { true: "gap-2" } },
     medium: { gap: { true: "gap-3" } },
-    large: { gap: { true: "gap-4" } },
-    xlarge: { gap: { true: "gap-6" } },
+    large: { gap: { true: "gap-6" } },
+    xlarge: { gap: { true: "gap-10" } },
   })
   .align(false, {
     true: "items-center",

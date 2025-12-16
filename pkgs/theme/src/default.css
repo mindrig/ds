@@ -37,6 +37,9 @@
   /***** Detail */
   --color-ink-detail: var(--color-gray-500);
   --color-ink-detail-inverse: var(--color-gray-500);
+  /***** Link */
+  --color-link: var(--color-indigo-600);
+  --color-link-hover: var(--color-indigo-500);
 
   /*## Background */
 

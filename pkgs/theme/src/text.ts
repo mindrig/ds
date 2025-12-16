@@ -29,6 +29,7 @@ export const textCn = cnss<{
   capsize: boolean;
   truncate: boolean;
   leading: "default" | "none";
+  balance: boolean;
 }>()
   .capsize(false, { true: "capsize" })
   .color("main", {
@@ -150,6 +151,9 @@ export const textCn = cnss<{
   })
   .leading("default", {
     none: "leading-none",
+  })
+  .balance(false, {
+    true: "text-balance",
   });
 
 export const descriptionTextCn = cnss<{
