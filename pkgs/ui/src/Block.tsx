@@ -47,6 +47,7 @@ export const blockCn = cnss<{
   grow: boolean;
   background: Background | boolean;
   empty: Block.Empty;
+  overflow: "default" | "hidden" | "auto";
 }>()
   .base("")
   .dir("x")
@@ -75,4 +76,8 @@ export const blockCn = cnss<{
   })
   .empty("hide", {
     hide: "empty:hidden",
+  })
+  .overflow("default", {
+    auto: "overflow-auto",
+    hidden: "overflow-hidden",
   });
