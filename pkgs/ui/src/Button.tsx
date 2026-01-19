@@ -210,7 +210,7 @@ export const buttonCn = cnss<{
           "text-button-secondary-label-ink hover:text-button-secondary-label-ink-hover",
       },
     },
-    cta: "bg-blue-700 text-white hover:bg-blue-600",
+    cta: "bg-button-solid-cta-canvas hover:bg-button-solid-cta-canvas-hover text-button-solid-cta-ink hover:text-button-solid-cta-ink-hover",
     action: {
       style: {
         solid: "bg-gray-700 text-white hover:bg-gray-600",

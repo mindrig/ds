@@ -75,6 +75,11 @@
   --color-button-solid-canvas-hover: var(--color-gray-400);
   --color-button-solid-ink: var(--color-white);
   --color-button-solid-ink-hover: var(--color-white);
+  /*----- CTA */
+  --color-button-solid-cta-ink: var(--color-white);
+  --color-button-solid-cta-ink-hover: var(--color-white);
+  --color-button-solid-cta-canvas: var(--color-blue-700);
+  --color-button-solid-cta-canvas-hover: var(--color-blue-600);
 
   /***** Label */
   --color-button-label-ink: var(--color-gray-700);
