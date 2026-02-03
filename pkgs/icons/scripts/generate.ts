@@ -1,14 +1,24 @@
 #!/usr/bin/env node
 
 import { glob } from "glob";
-import { writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
+import { readFile, writeFile } from "node:fs/promises";
 import { cpus } from "node:os";
 import { basename, dirname, join, relative, resolve } from "node:path";
 
 console.log("⚡️ Generating icon modules\n");
 
-console.log("🔵 Searching svgs...");
 const distDir = "dist";
+const versionPath = join(distDir, "version");
+const versionHash = await calculateVersionHash(".fontawesomerc");
+const currentVersion = await readFile(versionPath, "utf8").catch(() => null);
+
+if (currentVersion === versionHash) {
+  console.log(`🟢 Dist already at version ${versionHash}, skipping generation`);
+  process.exit(0);
+}
+
+console.log("🔵 Searching svgs...");
 const svgPaths = await glob(resolve(distDir, "**/*.svg"));
 const svgsCount = svgPaths.length;
 
@@ -20,7 +30,7 @@ progressBar(completed, svgsCount);
 
 await promiseQueue(
   svgPaths.map((path) => async () => {
-    const relPath = relative("dist", path);
+    const relPath = relative(distDir, path);
     const relDir = dirname(relPath);
     const name = basename(relPath, ".svg");
     const id = camelCase(join("icon", relDir, name));
@@ -35,11 +45,21 @@ import url from "./${name}.svg?no-inline";
 const ${id} = url as IconId;
 export default ${id};`,
     );
+
+    completed += 1;
+    progressBar(completed, svgsCount);
   }),
   cpus().length,
 );
 
-console.log("\n💚 Icon modules generated!");
+await writeFile(versionPath, versionHash);
+
+console.log(`\n💚 Icon modules generated at version ${versionHash}!`);
+
+async function calculateVersionHash(configPath: string): Promise<string> {
+  const contents = await readFile(configPath);
+  return createHash("sha256").update(contents).digest("hex").slice(0, 8);
+}
 
 function progressBar(completed: number, total: number) {
   const percent = completed / total;

@@ -6,13 +6,7 @@
     },
 
     "build": {
-      "dependsOn": ["build/generate"]
-    },
-
-    "build/generate": {
-      "dependsOn": ["build/import"],
-      "inputs": ["$TURBO_DEFAULT$", "./scripts/generate.ts", "./dist/**/*.svg"],
-      "outputs": ["./dist/**/*.ts"]
+      "dependsOn": ["build/unarchive"]
     },
 
     "build/import": {
@@ -20,6 +14,49 @@
       "inputs": ["$TURBO_DEFAULT$", "./.fontawesomerc", "./scripts/import.sh"],
       "outputs": ["./dist/**/*.svg"],
       "env": ["FONTAWESOME_PACKAGE_TOKEN"]
+    },
+
+    "build/generate": {
+      "dependsOn": ["build/import"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "./.fontawesomerc",
+        "./scripts/generate.ts",
+        "./dist/**/*.svg"
+      ],
+      "outputs": ["./dist/**/*.ts", "./dist/version"]
+    },
+
+    "build/archive": {
+      "dependsOn": ["//#install/npm"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".fontawesomerc",
+        "./scripts/_env.sh",
+        "./scripts/archive.sh",
+        "./dist/**/*"
+      ],
+      "env": [
+        "CLOUDFLARE_ACCOUNT_ID",
+        "CLOUDFLARE_DEV_BUCKET",
+        "CLOUDFLARE_DEV_BUCKET_TOKEN"
+      ]
+    },
+
+    "build/unarchive": {
+      "dependsOn": ["//#install/npm"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".fontawesomerc",
+        "./scripts/_env.sh",
+        "./scripts/unarchive.sh"
+      ],
+      "outputs": ["./dist/**/*"],
+      "env": [
+        "CLOUDFLARE_ACCOUNT_ID",
+        "CLOUDFLARE_DEV_BUCKET",
+        "CLOUDFLARE_DEV_BUCKET_TOKEN"
+      ]
     }
   },
   "extends": ["//"]

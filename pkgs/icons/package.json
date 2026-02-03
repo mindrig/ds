@@ -10,9 +10,12 @@
     "./svg/*": "./dist/*"
   },
   "scripts": {
+    "setup": "test -z $TURBO_HASH && turbo run setup || echo OK",
     "build": "test -z $TURBO_HASH && turbo run build || echo OK",
     "build/import": "./scripts/import.sh",
     "build/generate": "./scripts/generate.ts",
+    "build/archive": "./scripts/archive.sh",
+    "build/unarchive": "./scripts/unarchive.sh",
     "types": "script_path=\"$(pnpm root -w)/../scripts/pkg-types.sh\"; if [ -f \"$script_path\" ]; then \"$script_path\"; else tsc --build; fi",
     "types:watch": "script_path=\"$(pnpm root -w)/../scripts/pkg-types.sh\"; if [ -f \"$script_path\" ]; then \"$script_path\" watch; else tsc --build --watch; fi"
   },
@@ -25,6 +28,7 @@
     "@types/react": "^19.2.2",
     "@wrkspc/ts": "workspace:*",
     "glob": "^11.0.3",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "wrangler": "^4.62.0"
   }
 }
