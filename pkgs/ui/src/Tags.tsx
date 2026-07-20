@@ -5,7 +5,8 @@ import { cnss } from "cnss";
 import React, { PropsWithChildren } from "react";
 
 export interface TagsProps
-  extends Omit<React.HTMLProps<HTMLDivElement>, "color" | "size">,
+  extends
+    Omit<React.HTMLProps<HTMLDivElement>, "color" | "size">,
     cnss.Props<typeof tagsCn> {}
 
 export function Tags(props: PropsWithChildren<TagsProps>) {

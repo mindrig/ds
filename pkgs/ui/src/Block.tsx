@@ -14,8 +14,7 @@ import React from "react";
 
 export namespace Block {
   export interface Props
-    extends cnss.Props<typeof blockCn>,
-      cnss.Props<typeof spacingCn> {
+    extends cnss.Props<typeof blockCn>, cnss.Props<typeof spacingCn> {
     pad?: Padding.Prop | undefined;
     border?: Border.Prop | undefined;
   }

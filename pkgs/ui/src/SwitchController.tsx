@@ -3,8 +3,10 @@
 import { Field } from "enso";
 import { Switch, SwitchProps } from "./Switch";
 
-export interface SwitchControllerProps
-  extends Omit<SwitchProps, "value" | "ref"> {
+export interface SwitchControllerProps extends Omit<
+  SwitchProps,
+  "value" | "ref"
+> {
   field: Field<boolean>;
 }
 

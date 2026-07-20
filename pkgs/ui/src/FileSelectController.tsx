@@ -3,8 +3,9 @@
 import { Field } from "enso";
 import { FileSelect, FileSelectProps } from "./FileSelect";
 
-export interface FileSelectControllerProps<Multi extends boolean = false>
-  extends FileSelectProps {
+export interface FileSelectControllerProps<
+  Multi extends boolean = false,
+> extends FileSelectProps {
   field: Field<(Multi extends true ? FileList : File) | null>;
   multi?: Multi;
 }

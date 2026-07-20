@@ -9,7 +9,8 @@ export type TagProps = Tag.Props;
 
 export namespace Tag {
   export interface Props
-    extends Omit<React.HTMLProps<HTMLDivElement>, "color" | "size">,
+    extends
+      Omit<React.HTMLProps<HTMLDivElement>, "color" | "size">,
       cnss.Props<typeof tagCn> {}
 
   export type Color =

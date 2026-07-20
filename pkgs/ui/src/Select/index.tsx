@@ -84,9 +84,7 @@ export namespace Select {
     // TODO: Reenable extending React Aria Components props when the optional
     // props missing undefined issue is fixed.
     // extends  Omit<React.ComponentProps<typeof RASelect>, "selectedKey">
-    extends FieldCnProps,
-      Omit<InputCnProps, "icon">,
-      Errors.WithProp {
+    extends FieldCnProps, Omit<InputCnProps, "icon">, Errors.WithProp {
     label: Label.Prop;
     button?: ComponentProp<ButtonProps> | undefined;
     icon?: Icon.Prop | undefined;

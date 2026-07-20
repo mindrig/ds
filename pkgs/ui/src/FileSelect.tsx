@@ -9,7 +9,8 @@ import { fieldCn, FieldCnProps, InputCnProps } from "./classNames";
 import { anyErrors, Button, Errors, WithErrorsProps, Wrap } from "./index.js";
 
 export interface FileSelectProps
-  extends React.RefAttributes<HTMLInputElement>,
+  extends
+    React.RefAttributes<HTMLInputElement>,
     Omit<
       React.ComponentProps<typeof FileTrigger>,
       "onSelect" | "allowsMultiple" | "ref"

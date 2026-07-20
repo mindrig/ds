@@ -1,8 +1,10 @@
 import { Field } from "enso";
 import { NumberField, NumberFieldProps } from "./NumberField";
 
-export interface NumberFieldControllerProps
-  extends Omit<NumberFieldProps, "ref"> {
+export interface NumberFieldControllerProps extends Omit<
+  NumberFieldProps,
+  "ref"
+> {
   field: Field<number>;
 }
 

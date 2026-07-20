@@ -40,8 +40,10 @@ export namespace Tabs {
     Item<Id, Payload> | false | undefined | null | ""
   >;
 
-  export interface Props<Id extends string | undefined | null, Payload>
-    extends cnss.Props<typeof tabsCng> {
+  export interface Props<
+    Id extends string | undefined | null,
+    Payload,
+  > extends cnss.Props<typeof tabsCng> {
     label?: Label.Prop | undefined;
     items: Items<Id, Payload>;
     initial?: Id | undefined;

@@ -4,12 +4,12 @@
   "private": true,
   "license": "FSL-1.1-ALv2",
   "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "scripts": {
     "types": "script_path=\"$(pnpm root -w)/../scripts/pkg-types.sh\"; if [ -f \"$script_path\" ]; then \"$script_path\"; else tsc --build; fi",
     "types:watch": "script_path=\"$(pnpm root -w)/../scripts/pkg-types.sh\"; if [ -f \"$script_path\" ]; then \"$script_path\" watch; else tsc --build --watch; fi"
-  },
-  "exports": {
-    ".": "./src/index.ts"
   },
   "dependencies": {
     "@wrkspc/icons": "workspace:*",

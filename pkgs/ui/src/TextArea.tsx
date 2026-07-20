@@ -10,7 +10,8 @@ import { renderErrors, WithErrorsProps } from "./index.js";
 import { Label, labelA11yProps, labelProps, LabelValue } from "./Label";
 
 export interface TextAreaProps
-  extends Omit<React.ComponentProps<typeof TextField>, "ref">,
+  extends
+    Omit<React.ComponentProps<typeof TextField>, "ref">,
     FieldCnProps,
     InputCnProps,
     WithErrorsProps {

@@ -11,7 +11,8 @@ import { fieldCn, inputCn, InputCnProps } from "./classNames";
 import { renderErrors, WithErrorsProps } from "./index.js";
 
 export interface NumberFieldProps
-  extends React.ComponentProps<typeof RANumberField>,
+  extends
+    React.ComponentProps<typeof RANumberField>,
     Omit<InputCnProps, "prefix">,
     WithErrorsProps {
   label?: LabelValue | undefined;

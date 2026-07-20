@@ -1,8 +1,10 @@
 import { Checkbox, CheckboxProps } from "./Checkbox";
 import { Field } from "enso";
 
-export interface CheckboxControllerProps
-  extends Omit<CheckboxProps, "value" | "ref"> {
+export interface CheckboxControllerProps extends Omit<
+  CheckboxProps,
+  "value" | "ref"
+> {
   field: Field<boolean>;
 }
 

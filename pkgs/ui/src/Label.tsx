@@ -34,8 +34,7 @@ export namespace Label {
 
   /** @deprecated */
   export interface PropObjectReactNodeDeprecated
-    extends PropObjectBase,
-      PropA11y {
+    extends PropObjectBase, PropA11y {
     label: React.ReactNode;
   }
 

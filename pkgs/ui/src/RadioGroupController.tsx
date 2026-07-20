@@ -4,8 +4,9 @@ import { Field } from "enso";
 import React from "react";
 import { RadioGroup } from "react-aria-components";
 
-export interface RadioGroupControllerProps<Payload extends string | undefined>
-  extends React.ComponentProps<typeof RadioGroup> {
+export interface RadioGroupControllerProps<
+  Payload extends string | undefined,
+> extends React.ComponentProps<typeof RadioGroup> {
   field: Field<Payload>;
 }
 

@@ -9,7 +9,8 @@ import React, { forwardRef } from "react";
 import { Label, Radio as RARadio } from "react-aria-components";
 
 export interface RadioProps
-  extends cnss.Props<typeof radioCn>,
+  extends
+    cnss.Props<typeof radioCn>,
     Omit<React.ComponentProps<typeof RARadio>, "isDisabled"> {
   label?: string | undefined;
   value: string;

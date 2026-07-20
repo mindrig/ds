@@ -6,8 +6,7 @@ import { ComponentProps, PropsWithChildren, ReactNode } from "react";
 import { Button, Tooltip, TooltipTrigger } from "react-aria-components";
 
 export interface WithTooltipProps
-  extends ComponentProps<typeof TooltipTrigger>,
-    cnss.Props<typeof tooltipCn> {
+  extends ComponentProps<typeof TooltipTrigger>, cnss.Props<typeof tooltipCn> {
   tooltip: ReactNode | undefined;
   className?: string | undefined;
   onPress?: () => void;

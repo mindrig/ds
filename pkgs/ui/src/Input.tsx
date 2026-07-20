@@ -20,8 +20,7 @@ export namespace Input {
     // TODO: Reenable extending React Aria Components props when the optional
     // props missing undefined issue is fixed.
     // extends Omit<React.ComponentProps<typeof RATextField>, "type" | "value">,
-    extends Omit<InputCnProps, "prefix" | "icon">,
-      Errors.WithProp {
+    extends Omit<InputCnProps, "prefix" | "icon">, Errors.WithProp {
     label: Label.Prop;
     description?: string | undefined;
     placeholder?: string | undefined;

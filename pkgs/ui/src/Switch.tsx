@@ -12,7 +12,8 @@ import { anyErrors, Errors, WithErrorsProps } from "./index.js";
 import { Label } from "./Label";
 
 export interface SwitchProps
-  extends Omit<React.ComponentProps<typeof RASwitch>, "value">,
+  extends
+    Omit<React.ComponentProps<typeof RASwitch>, "value">,
     WithErrorsProps {
   label?:
     | string

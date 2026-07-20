@@ -4,8 +4,9 @@ import { Field } from "enso";
 import React from "react";
 import { CheckboxGroup } from "react-aria-components";
 
-export interface CheckboxGroupControllerProps<Payload extends string[]>
-  extends React.ComponentProps<typeof CheckboxGroup> {
+export interface CheckboxGroupControllerProps<
+  Payload extends string[],
+> extends React.ComponentProps<typeof CheckboxGroup> {
   field: Field<Payload>;
 }
 

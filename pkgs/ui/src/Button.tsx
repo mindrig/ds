@@ -16,14 +16,16 @@ export interface ButtonBaseProps {
 }
 
 export interface ButtonLinkProps
-  extends ButtonBaseProps,
+  extends
+    ButtonBaseProps,
     Omit<React.ComponentProps<typeof Link>, "children" | "style" | "href">,
     cnss.Props<typeof buttonCn> {
   href: string | undefined;
 }
 
 export interface ButtonProps
-  extends ButtonBaseProps,
+  extends
+    ButtonBaseProps,
     Omit<React.ComponentProps<typeof ButtonComponent>, "style" | "slot">,
     cnss.Props<typeof buttonCn> {
   slot?: boolean | string | null;

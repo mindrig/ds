@@ -14,15 +14,15 @@ export type IconProp = Icon.Prop;
 
 export namespace Icon {
   export interface Props
-    extends Omit<HTMLProps<HTMLDivElement>, "id" | "color" | "size">,
+    extends
+      Omit<HTMLProps<HTMLDivElement>, "id" | "color" | "size">,
       cnss.Props<typeof iconBaseCn>,
       cnss.Props<typeof iconMaskCn> {
     id: Prop;
   }
 
   export interface PropsBase
-    extends cnss.Props<typeof iconBaseCn>,
-      cnss.Props<typeof iconMaskCn> {
+    extends cnss.Props<typeof iconBaseCn>, cnss.Props<typeof iconMaskCn> {
     id: IconId;
     className?: string | undefined;
   }

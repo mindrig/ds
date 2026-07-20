@@ -8,8 +8,9 @@ import { selectItemCn, selectSectionCng } from "./cns";
 import { SelectOptions } from "./Options";
 
 export namespace SelectOption {
-  export interface Props<Value extends Select.Value>
-    extends cnss.Props<typeof selectItemCn> {
+  export interface Props<Value extends Select.Value> extends cnss.Props<
+    typeof selectItemCn
+  > {
     option: Select.OptionItem<Value>;
   }
 }

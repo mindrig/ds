@@ -6,10 +6,9 @@ import { Form as RAForm } from "react-aria-components";
 import { useFormStatus } from "react-dom";
 import { Button } from "./index.js";
 
-export interface FormProps
-  extends React.PropsWithChildren<
-    Omit<React.ComponentProps<typeof RAForm>, "action">
-  > {
+export interface FormProps extends React.PropsWithChildren<
+  Omit<React.ComponentProps<typeof RAForm>, "action">
+> {
   action?: (payload: FormData) => void;
   error?: string | undefined;
   title: string;

@@ -6,8 +6,9 @@ export type InputControllerProps<
 > = InputController.Props<Value>;
 
 export namespace InputController {
-  export interface Props<Value extends string | number | null | undefined>
-    extends Omit<InputProps<Value>, "ref"> {
+  export interface Props<
+    Value extends string | number | null | undefined,
+  > extends Omit<InputProps<Value>, "ref"> {
     field: Field<Value>;
   }
 }

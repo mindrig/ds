@@ -13,7 +13,8 @@ import { anyErrors, renderErrors, WithErrorsProps } from "./index.js";
 import { Label, labelProps, LabelValue } from "./Label";
 
 export interface CheckboxProps
-  extends Omit<React.ComponentProps<typeof RACheckbox>, "value">,
+  extends
+    Omit<React.ComponentProps<typeof RACheckbox>, "value">,
     FieldCnProps,
     InputCnProps,
     WithErrorsProps {
